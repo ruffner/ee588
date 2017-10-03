@@ -1,0 +1,64 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;*******************************************************
+                       ***********************
+    2 00000000         ;
+    3 00000000         ; timing.s - example assembly function or Keil and TMC12
+                       3 dev board
+    4 00000000         ; James Lumpp
+    5 00000000         ; 9/10/2017
+    6 00000000         
+    7 00000000                 AREA             |.text|, CODE, READONLY, ALIGN=
+2
+    8 00000000         
+    9 00000000                 EXPORT           delay_asm
+   10 00000000         
+   11 00000000         
+   12 00000000         delay_asm
+   13 00000000 3801            subs             r0, #1
+   14 00000002 D1FE            bne              delay_asm   ; 3 clock cycle del
+                                                            ay loop
+   15 00000004 4770            bx               lr
+   16 00000006         
+   17 00000006         
+   18 00000006 00 00           ALIGN                        ; make sure the end
+                                                             of this section is
+                                                             aligned (For the c
+                                                            ode/data to follow)
+                                                            
+   19 00000008                 END                          ; mark end of file
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend=.\timing.d -o.\timing.o -I.\RTE\_PLL -IC:\Keil_v5\ARM\PACK\ARM\
+CMSIS\5.0.1\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Incl
+ude\TM4C123 --predefine="__EVAL SETA 1" --predefine="__MICROLIB SETA 1" --prede
+fine="__UVISION_VERSION SETA 524" --predefine="_RTE_ SETA 1" --predefine="TM4C1
+23GH6PM SETA 1" --list=.\timing.lst timing.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 7 in file timing.s
+   Uses
+      None
+Comment: .text unused
+delay_asm 00000000
+
+Symbol: delay_asm
+   Definitions
+      At line 12 in file timing.s
+   Uses
+      At line 9 in file timing.s
+      At line 14 in file timing.s
+
+2 symbols
+338 symbols in table

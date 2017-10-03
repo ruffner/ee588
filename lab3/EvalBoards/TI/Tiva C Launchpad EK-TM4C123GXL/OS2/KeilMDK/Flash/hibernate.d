@@ -1,0 +1,12 @@
+.\flash\hibernate.o: ..\..\BSP\driverlib\hibernate.c
+.\flash\hibernate.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\flash\hibernate.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\flash\hibernate.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
+.\flash\hibernate.o: ..\..\BSP\inc/hw_hibernate.h
+.\flash\hibernate.o: ..\..\BSP\inc/hw_ints.h
+.\flash\hibernate.o: ..\..\BSP\inc/hw_sysctl.h
+.\flash\hibernate.o: ..\..\BSP\inc/hw_types.h
+.\flash\hibernate.o: ..\..\BSP\driverlib/debug.h
+.\flash\hibernate.o: ..\..\BSP\driverlib/hibernate.h
+.\flash\hibernate.o: ..\..\BSP\driverlib/interrupt.h
+.\flash\hibernate.o: ..\..\BSP\driverlib/sysctl.h

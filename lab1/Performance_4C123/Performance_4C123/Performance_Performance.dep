@@ -1,0 +1,11 @@
+Dependencies for Project 'Performance', Target 'Performance': (DO NOT MODIFY !)
+F (.\startup.s)(0x59AED2F9)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_Performance-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include--pd "__UVISION_VERSION SETA 524" --pd "_RTE_ SETA 1" --pd "LM4F120 SETA 1"--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\PLL.c)(0x59B17A7E)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --c99-I.\RTE\_Performance-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DLM4F120 -Drvmdk -DPART_LM4F120H5QR-o .\pll.o --omf_browse .\pll.crf --depend .\pll.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (PLL.h)(0x59AED2F9)
+I (tm4c123gh6pm.h)(0x59AEB851)
+F (.\Performance.c)(0x59B17B59)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --c99-I.\RTE\_Performance-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\LM4F_DFP\1.0.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DLM4F120 -Drvmdk -DPART_LM4F120H5QR-o .\performance.o --omf_browse .\performance.crf --depend .\performance.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x588C2C04)
+I (tm4c123gh6pm.h)(0x59AEB851)
+I (PLL.h)(0x59AED2F9)
