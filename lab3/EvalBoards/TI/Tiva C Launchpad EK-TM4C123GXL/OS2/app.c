@@ -50,6 +50,7 @@
 #include  "..\bsp\bsp.h"
 #include  "..\bsp\bsp_led.h"
 #include  "..\bsp\bsp_sys.h"
+//#include  "..\bsp\driverlib\interrupt.h"
 
 // SAR Addition
 #include <stdbool.h>
@@ -92,6 +93,7 @@
 static  OS_STK       AppTaskStartStk[APP_CFG_TASK_START_STK_SIZE];
 static  OS_STK       Task1Stk[APP_CFG_TASK_START_STK_SIZE];
 static  OS_STK       Task2Stk[APP_CFG_TASK_START_STK_SIZE];
+static  OS_STK			 Task3Stk[APP_CFG_TASK_START_STK_SIZE];
 /*
 *********************************************************************************************************
 *                                            LOCAL MACRO'S
@@ -109,6 +111,11 @@ static  void  AppTaskCreate         (void);
 static  void  AppTaskStart          (void       *p_arg);
 static  void  Task1          (void       *p_arg);
 static  void  Task2          (void       *p_arg);
+static  void  Task3					 (void			 *p_arg);
+
+uint8_t err = 0;
+OS_EVENT *mutex;
+
 
 /*$PAGE*/
 /*
@@ -159,8 +166,10 @@ int  main (void)
     OSTaskNameSet(APP_CFG_TASK_START_PRIO, "Start", &err);
 #endif
 
+		mutex = OSMutexCreate(0, &err);
+										
     OSStart();                                                  /* Start multitasking (i.e. give control to uC/OS-II)   */
-
+										
     while (1) {
         ;
     }
@@ -257,13 +266,22 @@ static  void  AppTaskCreate (void)
 OSTaskCreate((void (*)(void *)) Task1,           /* Create the second task                                */
                     (void           *) 0,							// argument
                     (OS_STK         *)&Task1Stk[APP_CFG_TASK_START_STK_SIZE - 1],
-                    (INT8U           ) 5 );  						// Task Priority
-                
+                    (INT8U           ) 3 );  						// Task Priority
+          
 
 OSTaskCreate((void (*)(void *)) Task2,           /* Create the second task                                */
                     (void           *) 0,							// argument
                     (OS_STK         *)&Task2Stk[APP_CFG_TASK_START_STK_SIZE - 1],
-                    (INT8U           ) 6 );  						// Task Priority
+                    (INT8U           ) 4 );  						// Task Priority
+										
+OSTaskCreate((void (*)(void *)) Task3,           /* Create the third task                                */
+                    (void           *) 0,							// argument
+                    (OS_STK         *)&Task3Stk[APP_CFG_TASK_START_STK_SIZE - 1],
+                    (INT8U           ) 6 );  						// Task Priority											
+
+
+										
+									
          										
 }
 
@@ -273,10 +291,14 @@ static  void  Task1 (void *p_arg)
    (void)p_arg;
 	
     while (1) {              
-        BSP_LED_Toggle(1);
-				UARTprintf("000000000000");	// Probably needs to be protected by semaphore
-        OSTimeDlyHMSM(0, 0, 0, 1);
-			}
+      BSP_LED_Toggle(1);
+			
+			OSMutexPend(mutex, 0, &err);
+			UARTprintf("11111111111111\n");	// Probably needs to be protected by semaphore
+			OSMutexPost(mutex);
+			
+			OSTimeDlyHMSM(0, 0, 0,  3);
+		}
 }
 
 static  void  Task2 (void *p_arg)
@@ -284,8 +306,24 @@ static  void  Task2 (void *p_arg)
    (void)p_arg;
 	
     while (1) {              
-        BSP_LED_Toggle(2);
-  			UARTprintf("111111111111");  // Probably needs to be protected by semaphore
-        OSTimeDlyHMSM(0, 0, 0, 1);
-			}
+      BSP_LED_Toggle(2);
+  			
+			OSMutexPend(mutex, 0, &err);
+			UARTprintf("22222222222222\n");  // Probably needs to be protected by semaphore
+      OSMutexPost(mutex);
+			OSTimeDlyHMSM(0, 0, 0, 1);
+		}
+}
+
+static  void  Task3( void *p_arg )
+{
+	(void)p_arg;
+
+	
+	while (1) {
+		BSP_LED_Toggle(0);
+	//IntPendClear(30);
+		 OSTimeDlyHMSM(0, 0, 0, 500);
+		
+	}
 }
