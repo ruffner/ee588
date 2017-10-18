@@ -24,6 +24,7 @@ INT_COUNT SPACE 4
 	AREA |.text|, CODE, READONLY, ALIGN=2
 		
 	EXPORT GPIOPortF_Handler
+	EXPORT SysTick_Handler
 	EXPORT StartNewTask
 		
 GPIOPortF_Handler
@@ -37,6 +38,16 @@ GPIOPortF_Handler
 	 blo context_sw ; perform context switch
 	 str r1,[r0]
 	 bx lr		    ; return from ISR
+
+SysTick_Handler
+	push{r4-r11}
+	mov r0, sp
+	bl Schedule
+	mov sp,r0
+	pop {r4-r11}
+	ldr lr, =INTERRUPT_LR
+	bx lr
+	 
 context_sw
 	 mov r1,#SWITCH_COUNT
 	 str r1,[r0]    ;reset INT_COUNT

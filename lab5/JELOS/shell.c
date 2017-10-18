@@ -6,8 +6,10 @@
 
 #include <stdio.h>
 #include <stdint.h>
+#include <string.h>
+#include "jelos.h"
 
-
+extern TaskControlBlock *get_tlp(void);
 void prmsg(char *);
 int strcmp(const char *s1, const char *s2);
 
@@ -97,6 +99,37 @@ void  execute(char **argv)
 }
 
 // -----------------------------------------------------------------
+// IMPLEMENTATION OF THE PS COMMAND
+// ----------------------------------------------------------------- 
+void  ps(void)
+{	
+	TaskControlBlock *p = get_tlp();
+	uint32_t total_time = 0;
+	uint32_t percent_time;
+	
+
+	// CALCULATE TOTAL TASK TIME USAGE
+	do{
+		p=p->next;
+		total_time += p->ticks;
+	} while( p!=get_tlp() );
+	
+	printf("TOTAL TIME: %d\n", total_time);
+	
+	// DISPLAY  PS INFO TO USER
+	p = get_tlp();
+	puts("\nUSER\tTID\t\%CPU\tSTK_SZ\t\%STK\tSTATE\tADDR\n");
+	do{
+		p=p->next;
+		percent_time = (uint32_t)(100*(double)p->ticks/(double)total_time);
+		printf("root\t%d\t%d%%\t%d\t--\t%s\t%d\n", p->tid, (uint32_t)((percent_time*100)/100), MIN_STACK_SIZE,p->state==T_CREATED ? "CREATED" : (p->state==T_READY?"READY" : "RUNNING"), (uint32_t)p->sp);
+	} while( p!=get_tlp() );
+	
+	
+}
+
+
+// -----------------------------------------------------------------
 // implementation of a shell
 // -----------------------------------------------------------------
 
@@ -116,18 +149,13 @@ void  shell(void)
 				return;
 
 				//exit(0);            
-	      } else if (strcmp(argv[0], "time") == 0)
-		      time();   //time(argv[1]);
-	        else if (strcmp(argv[0], "settime") == 0)
-		      settime(argv[1]);   //settime(argv[1]);
-          else if (strcmp(argv[0], "temp") == 0)
-		      temp();   //temp(argv[1]);
-					else if (strcmp(argv[0], "i") == 0)
-		      puts("an i\n");   //
-					else if (*argv[0] != 0 && argv[0] != 0) 
-		      execute(argv);    /* if not empy line execute command as new process*/
-					else	
-					putchar('\n');
+	      } else if (strcmp(argv[0], "ps") == 0) 			ps();
+					else if (strcmp(argv[0], "time") == 0)		time();   //time(argv[1]);
+	        else if (strcmp(argv[0], "settime") == 0)	settime(argv[1]);   //settime(argv[1]);
+          else if (strcmp(argv[0], "temp") == 0)		temp();   //temp(argv[1]);
+					else if (strcmp(argv[0], "i") == 0)				puts("an i\n");   //
+					else if (*argv[0] != 0 && argv[0] != 0) 	execute(argv);    /* if not empy line execute command as new process*/
+					else																			putchar('\n');
      }//while(1)
 }
 

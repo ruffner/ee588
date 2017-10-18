@@ -12,6 +12,8 @@
 #endif
 
 #define NULL 0
+#define OS_SYSTICK_PERIOD 100000
+//#define USE_SEMAPHORES
 
 int CreateTask(void (*func)(void), 
                     unsigned char *stack_start, 
@@ -40,7 +42,7 @@ void WaitForInterrupt(void);  // low power mode
 enum { T_CREATED, T_READY, T_RUNNING };
 
 typedef struct TaskControlBlock
-	{
+{
 	struct	TaskControlBlock *next;
 	unsigned char tid;			/* task id */
 	unsigned char state;		/* task state */
@@ -48,7 +50,8 @@ typedef struct TaskControlBlock
 	unsigned char	*stack_start;		/* stack low value */
 	unsigned char	*stack_end;			/* stack high value */
 	unsigned char	*sp;		/* current value of the stack pointer */
-	} TaskControlBlock;
+	uint32_t ticks;
+} TaskControlBlock;
 
 
 #endif
