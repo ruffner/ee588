@@ -13,7 +13,7 @@
 
 #define NULL 0
 #define OS_SYSTICK_PERIOD 100000
-//#define USE_SEMAPHORES
+#define USE_SEMAPHORES
 
 int CreateTask(void (*func)(void), 
                     unsigned char *stack_start, 

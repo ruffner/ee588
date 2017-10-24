@@ -39,14 +39,14 @@ void Zero(void)
 		#ifdef USE_SEMAPHORES 
 		OS_Sem_Wait(&SEM_UART); 
 		#endif
-		//puts("00000000");
+		puts("00000000");
 		#ifdef USE_SEMAPHORES 
 		OS_Sem_Signal(&SEM_UART);
 		#endif
 		ROM_GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, ~ROM_GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_1));
 		
-		ROM_SysCtlDelay(1000000);
-		//ROM_SysCtlDelay(12500);
+		//ROM_SysCtlDelay(1000000);
+		ROM_SysCtlDelay(12500);
 	}
 }
 
@@ -57,14 +57,14 @@ void One(void)
 		#ifdef USE_SEMAPHORES 
 		OS_Sem_Wait(&SEM_UART); 
 		#endif
-		//puts("11111111");
+		puts("11111111");
 		#ifdef USE_SEMAPHORES 
 		OS_Sem_Signal(&SEM_UART);
 		#endif
 		ROM_GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2, ~ROM_GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_2));
 		
-		ROM_SysCtlDelay(2000000);
-		//ROM_SysCtlDelay(25000);
+		//ROM_SysCtlDelay(2000000);
+		ROM_SysCtlDelay(25000);
 	} 
 }
 	
@@ -75,14 +75,14 @@ void Two(void)
 		#ifdef USE_SEMAPHORES 
 		OS_Sem_Wait(&SEM_UART); 
 		#endif
-		//puts("22222222");
+		puts("22222222");
 		#ifdef USE_SEMAPHORES 
 		OS_Sem_Signal(&SEM_UART);
 		#endif
 		ROM_GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, ~ROM_GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_3));
 		
-		ROM_SysCtlDelay(4000000);
-		//ROM_SysCtlDelay(50000);
+		//ROM_SysCtlDelay(4000000);
+		ROM_SysCtlDelay(50000);
 	}		
 } 
 

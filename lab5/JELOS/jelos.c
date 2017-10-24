@@ -160,10 +160,11 @@ void OS_Sem_Signal(unsigned int *s)
 
 void OS_Sem_Wait(unsigned int *s)
 {
-	while( *s==0 ) {
-		;
-	}
 	DisableInterrupts();
+	while( *s==0 ) {
+		EnableInterrupts();
+		DisableInterrupts();
+	}
 	*s = *s - 1;
 	EnableInterrupts();
 }
