@@ -1,0 +1,49 @@
+Dependencies for Project 'jelOS', Target 'Target 1': (DO NOT MODIFY !)
+F (.\UART.c)(0x59DF9DC8)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I C:\ti\TivaWare_C_Series-2.1.4.178-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\objects\uart.o --omf_browse .\objects\uart.crf --depend .\objects\uart.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (UART.h)(0x59DF9DC8)
+I (tm4c123gh6pm.h)(0x59DF9DC8)
+F (.\startup.s)(0x59DF9DC8)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 524" --pd "TM4C123GH6PM SETA 1"--list .\listings\startup.lst --xref -o .\objects\startup.o --depend .\objects\startup.d)
+F (.\PLL.c)(0x59DF9DC8)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I C:\ti\TivaWare_C_Series-2.1.4.178-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\objects\pll.o --omf_browse .\objects\pll.crf --depend .\objects\pll.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (PLL.h)(0x59DF9DC8)
+F (.\serialio.c)(0x59DF9DC8)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I C:\ti\TivaWare_C_Series-2.1.4.178-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\objects\serialio.o --omf_browse .\objects\serialio.crf --depend .\objects\serialio.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (UART.h)(0x59DF9DC8)
+F (.\shell.c)(0x59E7AB50)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I C:\ti\TivaWare_C_Series-2.1.4.178-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\objects\shell.o --omf_browse .\objects\shell.crf --depend .\objects\shell.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588C2C04)
+I (jelos.h)(0x59E8D952)
+F (.\EdgeInterrupt.c)(0x59E7B678)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I C:\ti\TivaWare_C_Series-2.1.4.178-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\objects\edgeinterrupt.o --omf_browse .\objects\edgeinterrupt.crf --depend .\objects\edgeinterrupt.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (tm4c123gh6pm.h)(0x59DF9DC8)
+F (.\ostestmain.c)(0x59E8D8F0)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I C:\ti\TivaWare_C_Series-2.1.4.178-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\objects\ostestmain.o --omf_browse .\objects\ostestmain.crf --depend .\objects\ostestmain.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (UART.h)(0x59DF9DC8)
+I (PLL.h)(0x59DF9DC8)
+I (jelos.h)(0x59E8D952)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588C2C04)
+I (C:\ti\TivaWare_C_Series-2.1.4.178\inc\hw_memmap.h)(0x59E3D95F)
+I (C:\ti\TivaWare_C_Series-2.1.4.178\driverlib\debug.h)(0x59E3D94F)
+I (C:\ti\TivaWare_C_Series-2.1.4.178\driverlib\gpio.h)(0x59E3D950)
+I (C:\ti\TivaWare_C_Series-2.1.4.178\driverlib\rom.h)(0x59E3D950)
+I (C:\ti\TivaWare_C_Series-2.1.4.178\driverlib\sysctl.h)(0x59E3D950)
+F (.\jelos.c)(0x59E8D9D0)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I C:\ti\TivaWare_C_Series-2.1.4.178-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_TM4C123_RB1-o .\objects\jelos.o --omf_browse .\objects\jelos.crf --depend .\objects\jelos.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588C2C04)
+I (jelos.h)(0x59E8D952)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588C2C04)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588C2C04)
+I (C:\ti\TivaWare_C_Series-2.1.4.178\inc\hw_memmap.h)(0x59E3D95F)
+I (C:\ti\TivaWare_C_Series-2.1.4.178\driverlib\debug.h)(0x59E3D94F)
+I (C:\ti\TivaWare_C_Series-2.1.4.178\driverlib\gpio.h)(0x59E3D950)
+I (C:\ti\TivaWare_C_Series-2.1.4.178\driverlib\rom.h)(0x59E3D950)
+I (C:\ti\TivaWare_C_Series-2.1.4.178\driverlib\sysctl.h)(0x59E3D950)
+F (.\jelosASM.s)(0x59E63484)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 524" --pd "TM4C123GH6PM SETA 1"--list .\listings\jelosasm.lst --xref -o .\objects\jelosasm.o --depend .\objects\jelosasm.d)
+F (.\UART.h)(0x59DF9DC8)()
+F (.\tm4c123gh6pm.h)(0x59DF9DC8)()
+F (.\PLL.h)(0x59DF9DC8)()
+F (.\jelos.h)(0x59E8D952)()

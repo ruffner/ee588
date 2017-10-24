@@ -1,0 +1,11 @@
+.\objects\jelos.o: jelos.c
+.\objects\jelos.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\jelos.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\jelos.o: jelos.h
+.\objects\jelos.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\jelos.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\jelos.o: C:\ti\TivaWare_C_Series-2.1.4.178\inc/hw_memmap.h
+.\objects\jelos.o: C:\ti\TivaWare_C_Series-2.1.4.178\driverlib/debug.h
+.\objects\jelos.o: C:\ti\TivaWare_C_Series-2.1.4.178\driverlib/gpio.h
+.\objects\jelos.o: C:\ti\TivaWare_C_Series-2.1.4.178\driverlib/rom.h
+.\objects\jelos.o: C:\ti\TivaWare_C_Series-2.1.4.178\driverlib/sysctl.h
