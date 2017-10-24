@@ -23,6 +23,8 @@
 #include "driverlib/rom_map.h"
 #include "tm4c123gh6pm.h"
 
+#define PWM_PERIOD_COUNT 50000
+
 void
 TIMER2A_Handler(void)
 {
@@ -34,6 +36,9 @@ TIMER2A_Handler(void)
 }
 
 int main(void) {
+	
+	uint32_t pwm_limit = 0;
+	uint8_t cdir = 1;
 	
 	PLL_Init();     // 50 MHz (SYSDIV2 == 7, defined in pll.h)
   UART_Init();    // initialize UART
@@ -65,23 +70,39 @@ int main(void) {
 	ROM_IntMasterEnable();
 	
 	
+	// TIMER SETUP TO EDGE COUNT ON PF4 
 	ROM_TimerConfigure (TIMER2_BASE, (TIMER_CFG_SPLIT_PAIR | TIMER_CFG_A_CAP_COUNT));
-	//ROM_TimerPrescaleSet (TIMER2_BASE, TIMER_A, 0x01);
-	//ROM_TimerPrescaleMatchSet (TIMER2_BASE, TIMER_A, 0x01);
-	ROM_TimerControlEvent (TIMER2_BASE, TIMER_A, TIMER_EVENT_BOTH_EDGES);
+	ROM_TimerControlEvent (TIMER2_BASE, TIMER_A, TIMER_EVENT_NEG_EDGE);
 	ROM_TimerLoadSet (TIMER2_BASE, TIMER_A, 0x50);
 	ROM_TimerMatchSet (TIMER2_BASE, TIMER_A, 0);
 	ROM_IntEnable(INT_TIMER2A);
 	ROM_TimerIntEnable(TIMER2_BASE, TIMER_CAPA_MATCH);
 	ROM_TimerEnable(TIMER2_BASE, TIMER_A);
 
+
+
+	
+	// TIMER SETUP TO FADE GREEN LED PN PF3
+	ROM_SysCtlPeripheralEnable(SYSCTL_PERIPH_TIMER1);
+	ROM_SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
+	ROM_GPIOPinConfigure(GPIO_PF3_T1CCP1);
+	ROM_GPIOPinTypeTimer(GPIO_PORTF_BASE, GPIO_PIN_3);
+	ROM_TimerConfigure(TIMER1_BASE, TIMER_CFG_SPLIT_PAIR | TIMER_CFG_B_PWM);
+	ROM_TimerLoadSet(TIMER1_BASE, TIMER_B, PWM_PERIOD_COUNT);
+	ROM_TimerMatchSet(TIMER1_BASE, TIMER_B, 0);
+	ROM_TimerEnable(TIMER1_BASE, TIMER_B);
+
+
 	
 	
 	
-	
+	// MAIN LOOP CODE ONLY CYCLES PWM LIMIT TO FADE LED
 	while(1) {
-		printf("Timer Value: %d\n", ROM_TimerValueGet(TIMER2_BASE, TIMER_A));
-	
-		ROM_SysCtlDelay(50000);
+		pwm_limit = cdir ? pwm_limit+100 : pwm_limit-100;
+		cdir = pwm_limit <= 0 ? 1 : (pwm_limit >= PWM_PERIOD_COUNT ? 0 : cdir);
+		pwm_limit = pwm_limit < 0 ? 0 : (pwm_limit >= PWM_PERIOD_COUNT ? PWM_PERIOD_COUNT : pwm_limit);
+		printf("New timer Value: %d\n", pwm_limit);
+		ROM_TimerMatchSet(TIMER1_BASE, TIMER_B, pwm_limit==0?1:pwm_limit );
+		ROM_SysCtlDelay( pwm_limit==0?1:pwm_limit );	
 	}
 } 
