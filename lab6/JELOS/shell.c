@@ -113,6 +113,7 @@ void  ps(void)
 	TaskControlBlock *p = get_tlp();
 	uint32_t total_time = 0;
 	uint32_t percent_time;
+	uint32_t tms[NUM_TASKS]; // keep copy of time values in case we are switched between calculations
 
 	#ifdef USE_SEMAPHORES
 	OS_Sem_Wait(get_sem_uart());
@@ -121,8 +122,9 @@ void  ps(void)
 	// CALCULATE TOTAL TASK TIME USAGE
 	do{
 		p=p->next;
-		total_time += p->ticks;
-		//printf("\tTASK %d HAS TIME: %d\n", p->tid, p->ticks);
+		tms[p->tid] = p->ticks;
+		total_time += tms[p->tid];
+		//printf("\tTASK %d HAS TIME: %d\n", p->tid, tms[p->tid]);
 	} while( p!=get_tlp() );
 	
 	//printf("TOTAL TIME: %d\n", total_time);
@@ -132,8 +134,8 @@ void  ps(void)
 	puts("\nUSER\tTID\t\%CPU\tSTK_SZ\t\%STK\tSTATE\tADDR\n");
 	do{
 		p=p->next;
-		percent_time = (uint32_t)(100*(double)p->ticks/(double)total_time);
-		printf("root\t%d\t%d%%\t%d\t--\t%s\t%d\n", p->tid, (uint32_t)(percent_time), MIN_STACK_SIZE,p->state==T_CREATED ? "CREATED" : (p->state==T_READY?"READY" : "RUNNING"), (uint32_t)p->sp);
+		percent_time = (uint32_t)(100.0*((double)tms[p->tid]/(double)total_time));
+		printf("root\t%d\t%d%%\t%d\t--\t%s\t%d\n", p->tid, percent_time, MIN_STACK_SIZE,p->state==T_CREATED ? "CREATED" : (p->state==T_READY?"READY" : "RUNNING"), (uint32_t)p->sp);
 	} while( p!=get_tlp() );
 	
 	#ifdef USE_SEMAPHORES

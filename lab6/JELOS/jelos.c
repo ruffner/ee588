@@ -143,7 +143,7 @@ unsigned char * Schedule(unsigned char * the_sp)
   // save the current sp and schedule	
 	CURRENT_TASK->sp = the_sp;
 	CURRENT_TASK->state = T_READY;
-	CURRENT_TASK->ticks = (ROM_SysTickValueGet() + CURRENT_TASK->ticks)/2;
+	CURRENT_TASK->ticks = ROM_SysTickValueGet();
 	CURRENT_TASK = CURRENT_TASK->next;
 	
 	while( CURRENT_TASK->blocked != 0){
@@ -189,7 +189,6 @@ void OS_Sem_Wait(int *s)
 	*s = *s - 1;
 	if( *s<0 ){
 		CURRENT_TASK->blocked = s;
-		//CURRENT_TASK->ticks = 0;
 		EnableInterrupts();
 		OS_Suspend();
 	}
