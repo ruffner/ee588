@@ -51,6 +51,7 @@ typedef struct TaskControlBlock
 	unsigned char	*stack_end;			/* stack high value */
 	unsigned char	*sp;		/* current value of the stack pointer */
 	uint32_t ticks;
+	int *blocked;
 } TaskControlBlock;
 
 

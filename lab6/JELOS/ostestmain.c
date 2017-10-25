@@ -19,19 +19,33 @@
 
 //  Global Declarations section
 #ifdef USE_SEMAPHORES
-unsigned int SEM_UART;												 // UART SEMAPHORE
+static int SEM_UART;												 // UART SEMAPHORE
 #endif
 unsigned char task_zero_stack[MIN_STACK_SIZE]; // Declare a seperate stack 
 unsigned char task_one_stack[MIN_STACK_SIZE];  // for each task
 unsigned char task_two_stack[MIN_STACK_SIZE];
 unsigned char task_shell_stack[1024];
 
+uint32_t blink_period = 10000;
+
 // Function Prototypes
 void shell(void);
 extern void SysTick_Init(void);
-extern void OS_Sem_Signal(unsigned int *s);
-extern void OS_Sem_Wait(unsigned int *s);
-extern void OS_Sem_Init(unsigned int *s, unsigned int count);
+extern void OS_Sem_Signal(int *s);
+extern void OS_Sem_Wait(int *s);
+extern void OS_Sem_Init(int *s, int count);
+
+int* get_sem_uart();
+
+int* get_sem_uart()
+{
+	return &SEM_UART;
+}
+
+void set_blink(uint32_t per)
+{
+	blink_period = per;
+}
 
 void Zero(void)
 	{
@@ -45,8 +59,8 @@ void Zero(void)
 		#endif
 		ROM_GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1, ~ROM_GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_1));
 		
-		//ROM_SysCtlDelay(1000000);
-		ROM_SysCtlDelay(12500);
+		ROM_SysCtlDelay(blink_period);
+		//ROM_SysCtlDelay(25000);
 	}
 }
 
@@ -63,8 +77,8 @@ void One(void)
 		#endif
 		ROM_GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2, ~ROM_GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_2));
 		
-		//ROM_SysCtlDelay(2000000);
-		ROM_SysCtlDelay(25000);
+		ROM_SysCtlDelay(blink_period*2);
+		//ROM_SysCtlDelay(25000);
 	} 
 }
 	
@@ -81,8 +95,8 @@ void Two(void)
 		#endif
 		ROM_GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, ~ROM_GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_3));
 		
-		//ROM_SysCtlDelay(4000000);
-		ROM_SysCtlDelay(50000);
+		ROM_SysCtlDelay(blink_period*4);
+		//ROM_SysCtlDelay(50000);
 	}		
 } 
 
@@ -113,7 +127,8 @@ int main(void) {
 		
 	// INITIALIZE UART SEMAPHORE AS BINARY
 	#ifdef USE_SEMAPHORES 
-	OS_Sem_Init(&SEM_UART, 1);
+	SEM_UART=1;
+	//OS_Sem_Init(&SEM_UART, );
 	#endif
 	
 	// INIT SYSTICK FOR AUTOMATIC CONTEXT SWITCHING

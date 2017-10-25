@@ -14,6 +14,7 @@
 #include "driverlib/gpio.h"
 #include "driverlib/rom.h"
 #include "driverlib/sysctl.h"
+#include "tm4c123gh6pm.h"
 
 static TaskControlBlock task_list[NUM_TASKS], *TASK_LIST_PTR;
 static TaskControlBlock *CURRENT_TASK;
@@ -26,10 +27,15 @@ static void InitSystem(void);
 static void NullTask(void);
 void EdgeCounter_Init(void);
 void SysTick_Init(void);
+
+// FROM ASM
 extern void SysTick_Handler(void);
-void OS_Sem_Signal(unsigned int *s);
-void OS_Sem_Wait(unsigned int *s);
-void OS_Sem_Init(unsigned int *s, unsigned int count);
+
+// FOR SEMAPHORES
+void OS_Suspend(void);
+void OS_Sem_Signal(int *s);
+void OS_Sem_Wait(int *s);
+void OS_Sem_Init(int *s, int count);
 
             /* Start the multi-tasking system */
 int StartScheduler(void)
@@ -43,14 +49,14 @@ int StartScheduler(void)
   NullTask();                   // Will not return
 	return 0;	 
 	}
-
+	
 // INITIALIZE SYSTICK TIMER, FOR CONTEXT SWITCHING
 void SysTick_Init(void)
 {
 	ROM_SysTickEnable();
 	ROM_SysTickPeriodSet(OS_SYSTICK_PERIOD);
 	ROM_SysTickIntEnable();
-	//EnableInterrupts();
+	EnableInterrupts();
 }
 	
 /* Create a new process and link it to the task list
@@ -71,6 +77,7 @@ int CreateTask(void (*func)(void),
 	TASK_LIST_PTR = TASK_LIST_PTR->next;
 	p->func = func;
 	p->ticks = 0;
+	p->blocked = 0;
 	p->state = T_CREATED;
 	p->tid = NEXT_TID++;
 
@@ -136,8 +143,13 @@ unsigned char * Schedule(unsigned char * the_sp)
   // save the current sp and schedule	
 	CURRENT_TASK->sp = the_sp;
 	CURRENT_TASK->state = T_READY;
-	CURRENT_TASK->ticks = ROM_SysTickValueGet();
+	CURRENT_TASK->ticks = (ROM_SysTickValueGet() + CURRENT_TASK->ticks)/2;
 	CURRENT_TASK = CURRENT_TASK->next;
+	
+	while( CURRENT_TASK->blocked != 0){
+		CURRENT_TASK = CURRENT_TASK->next;
+	}
+
 
 	if (CURRENT_TASK->state == T_READY){
 		  CURRENT_TASK->state = T_RUNNING;
@@ -151,25 +163,40 @@ unsigned char * Schedule(unsigned char * the_sp)
 	return(sp);
 }
 
-void OS_Sem_Signal(unsigned int *s)
+void OS_Suspend(void)
 {
+	NVIC_INT_CTRL_R |= 0x04000000;
+}
+
+void OS_Sem_Signal(int *s)
+{
+	TaskControlBlock *p = CURRENT_TASK->next;
+	
 	DisableInterrupts();
 	*s = *s + 1;
+	if( *s<=0 ){
+		while( p->blocked!=s ){
+			p=p->next;
+		}
+		p->blocked = 0;
+	}
 	EnableInterrupts();
 }
 
-void OS_Sem_Wait(unsigned int *s)
+void OS_Sem_Wait(int *s)
 {
 	DisableInterrupts();
-	while( *s==0 ) {
-		EnableInterrupts();
-		DisableInterrupts();
-	}
 	*s = *s - 1;
+	if( *s<0 ){
+		CURRENT_TASK->blocked = s;
+		//CURRENT_TASK->ticks = 0;
+		EnableInterrupts();
+		OS_Suspend();
+	}
 	EnableInterrupts();
 }
 
-void OS_Sem_Init(unsigned int *s, unsigned int count)
+void OS_Sem_Init(int *s, int count)
 {
 	DisableInterrupts();
 	*s = count;

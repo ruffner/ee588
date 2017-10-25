@@ -10,8 +10,14 @@
 #include "jelos.h"
 
 extern TaskControlBlock *get_tlp(void);
+extern void OS_Sem_Signal(int *s);
+extern void OS_Sem_Wait(int *s);
+extern int* get_sem_uart();
+
 void prmsg(char *);
 int strcmp(const char *s1, const char *s2);
+extern void set_blink(uint32_t period);
+
 
 // -----------------------------------------------------------------
 // SHELL BUILT_IN FUNCTIONS
@@ -21,6 +27,7 @@ int strcmp(const char *s1, const char *s2);
 // FUNCTION  time:                                                  
 //    Print the current time.                   
 // ----------------------------------------------------------------- 
+
 
 void time(void)
 {  
@@ -106,15 +113,19 @@ void  ps(void)
 	TaskControlBlock *p = get_tlp();
 	uint32_t total_time = 0;
 	uint32_t percent_time;
-	
+
+	#ifdef USE_SEMAPHORES
+	OS_Sem_Wait(get_sem_uart());
+	#endif	
 
 	// CALCULATE TOTAL TASK TIME USAGE
 	do{
 		p=p->next;
 		total_time += p->ticks;
+		//printf("\tTASK %d HAS TIME: %d\n", p->tid, p->ticks);
 	} while( p!=get_tlp() );
 	
-	printf("TOTAL TIME: %d\n", total_time);
+	//printf("TOTAL TIME: %d\n", total_time);
 	
 	// DISPLAY  PS INFO TO USER
 	p = get_tlp();
@@ -122,10 +133,12 @@ void  ps(void)
 	do{
 		p=p->next;
 		percent_time = (uint32_t)(100*(double)p->ticks/(double)total_time);
-		printf("root\t%d\t%d%%\t%d\t--\t%s\t%d\n", p->tid, (uint32_t)((percent_time*100)/100), MIN_STACK_SIZE,p->state==T_CREATED ? "CREATED" : (p->state==T_READY?"READY" : "RUNNING"), (uint32_t)p->sp);
+		printf("root\t%d\t%d%%\t%d\t--\t%s\t%d\n", p->tid, (uint32_t)(percent_time), MIN_STACK_SIZE,p->state==T_CREATED ? "CREATED" : (p->state==T_READY?"READY" : "RUNNING"), (uint32_t)p->sp);
 	} while( p!=get_tlp() );
 	
-	
+	#ifdef USE_SEMAPHORES
+	OS_Sem_Signal(get_sem_uart());
+	#endif
 }
 
 
@@ -150,6 +163,7 @@ void  shell(void)
 
 				//exit(0);            
 	      } else if (strcmp(argv[0], "ps") == 0) 			ps();
+					else if (strcmp(argv[0], "blink") == 0)   set_blink(atoi(argv[1]));
 					else if (strcmp(argv[0], "time") == 0)		time();   //time(argv[1]);
 	        else if (strcmp(argv[0], "settime") == 0)	settime(argv[1]);   //settime(argv[1]);
           else if (strcmp(argv[0], "temp") == 0)		temp();   //temp(argv[1]);
