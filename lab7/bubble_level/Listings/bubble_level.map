@@ -1,0 +1,714 @@
+Component: ARM Compiler 5.06 update 5 (build 528) Tool: armlink [4d35e2]
+
+==============================================================================
+
+Section Cross References
+
+    bsp.o(i.BSP_Accelerometer_Init) refers to bsp.o(i.adcinit) for adcinit
+    bsp.o(i.BSP_Buzzer_Init) refers to bsp.o(.data) for ClockFrequency
+    bsp.o(i.BSP_Buzzer_Set) refers to bsp.o(.data) for PWMCycles
+    bsp.o(i.BSP_Clock_GetFreq) refers to bsp.o(.data) for ClockFrequency
+    bsp.o(i.BSP_Clock_InitFastest) refers to bsp.o(.data) for ClockFrequency
+    bsp.o(i.BSP_Delay1ms) refers to bsp.o(.emb_text) for parrotdelay
+    bsp.o(i.BSP_Joystick_Init) refers to bsp.o(i.adcinit) for adcinit
+    bsp.o(i.BSP_LCD_DrawBitmap) refers to bsp.o(i.setAddrWindow) for setAddrWindow
+    bsp.o(i.BSP_LCD_DrawBitmap) refers to bsp.o(i.writedata) for writedata
+    bsp.o(i.BSP_LCD_DrawBitmap) refers to bsp.o(.data) for _width
+    bsp.o(i.BSP_LCD_DrawChar) refers to bsp.o(i.setAddrWindow) for setAddrWindow
+    bsp.o(i.BSP_LCD_DrawChar) refers to bsp.o(i.pushColor) for pushColor
+    bsp.o(i.BSP_LCD_DrawChar) refers to bsp.o(.data) for _width
+    bsp.o(i.BSP_LCD_DrawChar) refers to bsp.o(.constdata) for Font
+    bsp.o(i.BSP_LCD_DrawCharS) refers to bsp.o(i.BSP_LCD_DrawPixel) for BSP_LCD_DrawPixel
+    bsp.o(i.BSP_LCD_DrawCharS) refers to bsp.o(i.BSP_LCD_FillRect) for BSP_LCD_FillRect
+    bsp.o(i.BSP_LCD_DrawCharS) refers to bsp.o(.data) for _width
+    bsp.o(i.BSP_LCD_DrawCharS) refers to bsp.o(.constdata) for Font
+    bsp.o(i.BSP_LCD_DrawFastHLine) refers to bsp.o(i.setAddrWindow) for setAddrWindow
+    bsp.o(i.BSP_LCD_DrawFastHLine) refers to bsp.o(i.writedata) for writedata
+    bsp.o(i.BSP_LCD_DrawFastHLine) refers to bsp.o(.data) for _width
+    bsp.o(i.BSP_LCD_DrawFastVLine) refers to bsp.o(i.setAddrWindow) for setAddrWindow
+    bsp.o(i.BSP_LCD_DrawFastVLine) refers to bsp.o(i.writedata) for writedata
+    bsp.o(i.BSP_LCD_DrawFastVLine) refers to bsp.o(.data) for _width
+    bsp.o(i.BSP_LCD_DrawPixel) refers to bsp.o(i.setAddrWindow) for setAddrWindow
+    bsp.o(i.BSP_LCD_DrawPixel) refers to bsp.o(i.pushColor) for pushColor
+    bsp.o(i.BSP_LCD_DrawPixel) refers to bsp.o(.data) for _width
+    bsp.o(i.BSP_LCD_DrawString) refers to bsp.o(i.BSP_LCD_DrawChar) for BSP_LCD_DrawChar
+    bsp.o(i.BSP_LCD_Drawaxes) refers to bsp.o(i.BSP_LCD_FillRect) for BSP_LCD_FillRect
+    bsp.o(i.BSP_LCD_Drawaxes) refers to bsp.o(i.BSP_LCD_DrawFastHLine) for BSP_LCD_DrawFastHLine
+    bsp.o(i.BSP_LCD_Drawaxes) refers to bsp.o(i.BSP_LCD_DrawFastVLine) for BSP_LCD_DrawFastVLine
+    bsp.o(i.BSP_LCD_Drawaxes) refers to bsp.o(i.BSP_LCD_DrawPixel) for BSP_LCD_DrawPixel
+    bsp.o(i.BSP_LCD_Drawaxes) refers to bsp.o(i.BSP_LCD_DrawChar) for BSP_LCD_DrawChar
+    bsp.o(i.BSP_LCD_Drawaxes) refers to bsp.o(.data) for Ymax
+    bsp.o(i.BSP_LCD_FillRect) refers to bsp.o(i.setAddrWindow) for setAddrWindow
+    bsp.o(i.BSP_LCD_FillRect) refers to bsp.o(i.writedata) for writedata
+    bsp.o(i.BSP_LCD_FillRect) refers to bsp.o(.data) for _width
+    bsp.o(i.BSP_LCD_FillScreen) refers to bsp.o(i.BSP_LCD_FillRect) for BSP_LCD_FillRect
+    bsp.o(i.BSP_LCD_FillScreen) refers to bsp.o(.data) for _height
+    bsp.o(i.BSP_LCD_Init) refers to bsp.o(i.ST7735_InitR) for ST7735_InitR
+    bsp.o(i.BSP_LCD_OutUDec) refers to bsp.o(i.fillmessage) for fillmessage
+    bsp.o(i.BSP_LCD_OutUDec) refers to bsp.o(i.BSP_LCD_DrawString) for BSP_LCD_DrawString
+    bsp.o(i.BSP_LCD_OutUDec) refers to bsp.o(i.BSP_LCD_DrawChar) for BSP_LCD_DrawChar
+    bsp.o(i.BSP_LCD_OutUDec) refers to bsp.o(.data) for StTextColor
+    bsp.o(i.BSP_LCD_OutUDec) refers to bsp.o(.bss) for Message
+    bsp.o(i.BSP_LCD_OutUDec4) refers to bsp.o(i.fillmessage4) for fillmessage4
+    bsp.o(i.BSP_LCD_OutUDec4) refers to bsp.o(i.BSP_LCD_DrawString) for BSP_LCD_DrawString
+    bsp.o(i.BSP_LCD_OutUDec4) refers to bsp.o(i.BSP_LCD_DrawChar) for BSP_LCD_DrawChar
+    bsp.o(i.BSP_LCD_OutUDec4) refers to bsp.o(.data) for Messageindex
+    bsp.o(i.BSP_LCD_OutUDec4) refers to bsp.o(.bss) for Message
+    bsp.o(i.BSP_LCD_OutUDec5) refers to bsp.o(i.fillmessage5) for fillmessage5
+    bsp.o(i.BSP_LCD_OutUDec5) refers to bsp.o(i.BSP_LCD_DrawString) for BSP_LCD_DrawString
+    bsp.o(i.BSP_LCD_OutUDec5) refers to bsp.o(i.BSP_LCD_DrawChar) for BSP_LCD_DrawChar
+    bsp.o(i.BSP_LCD_OutUDec5) refers to bsp.o(.data) for Messageindex
+    bsp.o(i.BSP_LCD_OutUDec5) refers to bsp.o(.bss) for Message
+    bsp.o(i.BSP_LCD_OutUFix2_1) refers to bsp.o(i.fillmessage2_1) for fillmessage2_1
+    bsp.o(i.BSP_LCD_OutUFix2_1) refers to bsp.o(i.BSP_LCD_DrawString) for BSP_LCD_DrawString
+    bsp.o(i.BSP_LCD_OutUFix2_1) refers to bsp.o(i.BSP_LCD_DrawChar) for BSP_LCD_DrawChar
+    bsp.o(i.BSP_LCD_OutUFix2_1) refers to bsp.o(.data) for StY
+    bsp.o(i.BSP_LCD_OutUFix2_1) refers to bsp.o(.bss) for Message
+    bsp.o(i.BSP_LCD_OutUHex2) refers to bsp.o(i.fillmessage2_Hex) for fillmessage2_Hex
+    bsp.o(i.BSP_LCD_OutUHex2) refers to bsp.o(i.BSP_LCD_DrawString) for BSP_LCD_DrawString
+    bsp.o(i.BSP_LCD_OutUHex2) refers to bsp.o(i.BSP_LCD_DrawChar) for BSP_LCD_DrawChar
+    bsp.o(i.BSP_LCD_OutUHex2) refers to bsp.o(.data) for StY
+    bsp.o(i.BSP_LCD_OutUHex2) refers to bsp.o(.bss) for Message
+    bsp.o(i.BSP_LCD_PlotIncrement) refers to bsp.o(i.BSP_LCD_DrawFastVLine) for BSP_LCD_DrawFastVLine
+    bsp.o(i.BSP_LCD_PlotIncrement) refers to bsp.o(.data) for TimeIndex
+    bsp.o(i.BSP_LCD_PlotPoint) refers to bsp.o(i.BSP_LCD_DrawPixel) for BSP_LCD_DrawPixel
+    bsp.o(i.BSP_LCD_PlotPoint) refers to bsp.o(.data) for Ymin
+    bsp.o(i.BSP_LCD_SetCursor) refers to bsp.o(.data) for StX
+    bsp.o(i.BSP_LightSensor_End) refers to bsp.o(i.lightsensorstart) for lightsensorstart
+    bsp.o(i.BSP_LightSensor_End) refers to bsp.o(i.lightsensorend) for lightsensorend
+    bsp.o(i.BSP_LightSensor_End) refers to bsp.o(.data) for LightBusy
+    bsp.o(i.BSP_LightSensor_Init) refers to bsp.o(i.i2cinit) for i2cinit
+    bsp.o(i.BSP_LightSensor_Input) refers to bsp.o(i.lightsensorstart) for lightsensorstart
+    bsp.o(i.BSP_LightSensor_Input) refers to bsp.o(i.lightsensorend) for lightsensorend
+    bsp.o(i.BSP_LightSensor_Input) refers to bsp.o(.data) for LightBusy
+    bsp.o(i.BSP_LightSensor_Start) refers to bsp.o(i.lightsensorstart) for lightsensorstart
+    bsp.o(i.BSP_LightSensor_Start) refers to bsp.o(.data) for LightBusy
+    bsp.o(i.BSP_Microphone_Init) refers to bsp.o(i.adcinit) for adcinit
+    bsp.o(i.BSP_PeriodicTask_Init) refers to startup_tm4c123.o(.text) for StartCritical
+    bsp.o(i.BSP_PeriodicTask_Init) refers to bsp.o(.data) for PeriodicTask
+    bsp.o(i.BSP_PeriodicTask_InitB) refers to startup_tm4c123.o(.text) for StartCritical
+    bsp.o(i.BSP_PeriodicTask_InitB) refers to bsp.o(.data) for PeriodicTaskB
+    bsp.o(i.BSP_PeriodicTask_InitC) refers to startup_tm4c123.o(.text) for StartCritical
+    bsp.o(i.BSP_PeriodicTask_InitC) refers to bsp.o(.data) for PeriodicTaskC
+    bsp.o(i.BSP_RGB_D_Init) refers to bsp.o(i.BSP_RGB_D_Set) for BSP_RGB_D_Set
+    bsp.o(i.BSP_RGB_Init) refers to bsp.o(.data) for ClockFrequency
+    bsp.o(i.BSP_RGB_Set) refers to bsp.o(.data) for PWMCycles
+    bsp.o(i.BSP_TempSensor_End) refers to bsp.o(i.tempsensorstart) for tempsensorstart
+    bsp.o(i.BSP_TempSensor_End) refers to bsp.o(i.tempsensorend) for tempsensorend
+    bsp.o(i.BSP_TempSensor_End) refers to bsp.o(.data) for TempBusy
+    bsp.o(i.BSP_TempSensor_Init) refers to bsp.o(i.i2cinit) for i2cinit
+    bsp.o(i.BSP_TempSensor_Input) refers to bsp.o(i.tempsensorstart) for tempsensorstart
+    bsp.o(i.BSP_TempSensor_Input) refers to bsp.o(i.tempsensorend) for tempsensorend
+    bsp.o(i.BSP_TempSensor_Input) refers to bsp.o(.data) for TempBusy
+    bsp.o(i.BSP_TempSensor_Start) refers to bsp.o(i.tempsensorstart) for tempsensorstart
+    bsp.o(i.BSP_TempSensor_Start) refers to bsp.o(.data) for TempBusy
+    bsp.o(i.BSP_Time_Init) refers to startup_tm4c123.o(.text) for StartCritical
+    bsp.o(i.ST7735_InitR) refers to bsp.o(i.commonInit) for commonInit
+    bsp.o(i.ST7735_InitR) refers to bsp.o(i.commandList) for commandList
+    bsp.o(i.ST7735_InitR) refers to bsp.o(i.writecommand) for writecommand
+    bsp.o(i.ST7735_InitR) refers to bsp.o(i.writedata) for writedata
+    bsp.o(i.ST7735_InitR) refers to bsp.o(i.BSP_LCD_SetCursor) for BSP_LCD_SetCursor
+    bsp.o(i.ST7735_InitR) refers to bsp.o(i.BSP_LCD_FillScreen) for BSP_LCD_FillScreen
+    bsp.o(i.ST7735_InitR) refers to bsp.o(.constdata) for Rcmd1
+    bsp.o(i.ST7735_InitR) refers to bsp.o(.data) for ColStart
+    bsp.o(i.WideTimer3A_Handler) refers to bsp.o(.data) for PeriodicTaskC
+    bsp.o(i.WideTimer4A_Handler) refers to bsp.o(.data) for PeriodicTaskB
+    bsp.o(i.WideTimer5A_Handler) refers to bsp.o(.data) for PeriodicTask
+    bsp.o(i.commandList) refers to bsp.o(i.writecommand) for writecommand
+    bsp.o(i.commandList) refers to bsp.o(i.writedata) for writedata
+    bsp.o(i.commandList) refers to bsp.o(i.BSP_Delay1ms) for BSP_Delay1ms
+    bsp.o(i.commonInit) refers to bsp.o(i.BSP_Delay1ms) for BSP_Delay1ms
+    bsp.o(i.commonInit) refers to bsp.o(i.commandList) for commandList
+    bsp.o(i.commonInit) refers to bsp.o(.data) for RowStart
+    bsp.o(i.fillmessage) refers to bsp.o(.bss) for Message
+    bsp.o(i.fillmessage) refers to bsp.o(.data) for Messageindex
+    bsp.o(i.fillmessage2_1) refers to bsp.o(.bss) for Message
+    bsp.o(i.fillmessage2_Hex) refers to bsp.o(.bss) for Message
+    bsp.o(i.fillmessage4) refers to bsp.o(i.fillmessage) for fillmessage
+    bsp.o(i.fillmessage4) refers to bsp.o(.data) for Messageindex
+    bsp.o(i.fillmessage4) refers to bsp.o(.bss) for Message
+    bsp.o(i.fillmessage5) refers to bsp.o(i.fillmessage) for fillmessage
+    bsp.o(i.fillmessage5) refers to bsp.o(.data) for Messageindex
+    bsp.o(i.fillmessage5) refers to bsp.o(.bss) for Message
+    bsp.o(i.lightsensorend) refers to bsp.o(i.I2C_Send1) for I2C_Send1
+    bsp.o(i.lightsensorend) refers to bsp.o(i.I2C_Recv2) for I2C_Recv2
+    bsp.o(i.lightsensorend) refers to bsp.o(i.I2C_Send3) for I2C_Send3
+    bsp.o(i.lightsensorstart) refers to bsp.o(i.I2C_Send3) for I2C_Send3
+    bsp.o(i.lightsensorstart) refers to bsp.o(i.I2C_Recv2) for I2C_Recv2
+    bsp.o(i.pushColor) refers to bsp.o(i.writedata) for writedata
+    bsp.o(i.setAddrWindow) refers to bsp.o(i.writecommand) for writecommand
+    bsp.o(i.setAddrWindow) refers to bsp.o(i.writedata) for writedata
+    bsp.o(i.setAddrWindow) refers to bsp.o(.data) for ColStart
+    bsp.o(i.tempsensorend) refers to bsp.o(i.I2C_Send1) for I2C_Send1
+    bsp.o(i.tempsensorend) refers to bsp.o(i.I2C_Recv2) for I2C_Recv2
+    bsp.o(i.tempsensorstart) refers to bsp.o(i.I2C_Send3) for I2C_Send3
+    main.o(i.checkbuttons) refers to bsp.o(i.BSP_Button1_Input) for BSP_Button1_Input
+    main.o(i.checkbuttons) refers to bsp.o(i.BSP_Accelerometer_Input) for BSP_Accelerometer_Input
+    main.o(i.checkbuttons) refers to main.o(.data) for acc_hold
+    main.o(i.main) refers to startup_tm4c123.o(.text) for DisableInterrupts
+    main.o(i.main) refers to bsp.o(i.BSP_Clock_InitFastest) for BSP_Clock_InitFastest
+    main.o(i.main) refers to bsp.o(i.BSP_Button1_Init) for BSP_Button1_Init
+    main.o(i.main) refers to bsp.o(i.BSP_Button2_Init) for BSP_Button2_Init
+    main.o(i.main) refers to bsp.o(i.BSP_RGB_Init) for BSP_RGB_Init
+    main.o(i.main) refers to bsp.o(i.BSP_Buzzer_Init) for BSP_Buzzer_Init
+    main.o(i.main) refers to bsp.o(i.BSP_Accelerometer_Init) for BSP_Accelerometer_Init
+    main.o(i.main) refers to bsp.o(i.BSP_PeriodicTask_Init) for BSP_PeriodicTask_Init
+    main.o(i.main) refers to bsp.o(i.BSP_LCD_Init) for BSP_LCD_Init
+    main.o(i.main) refers to bsp.o(i.BSP_LCD_Color565) for BSP_LCD_Color565
+    main.o(i.main) refers to bsp.o(i.BSP_LCD_FillScreen) for BSP_LCD_FillScreen
+    main.o(i.main) refers to bsp.o(i.BSP_LCD_FillRect) for BSP_LCD_FillRect
+    main.o(i.main) refers to main.o(i.map) for map
+    main.o(i.main) refers to bsp.o(i.BSP_LCD_DrawBitmap) for BSP_LCD_DrawBitmap
+    main.o(i.main) refers to bsp.o(i.BSP_LCD_DrawPixel) for BSP_LCD_DrawPixel
+    main.o(i.main) refers to main.o(i.checkbuttons) for checkbuttons
+    main.o(i.main) refers to main.o(.data) for AccX
+    main.o(i.main) refers to main.o(.constdata) for bubble
+    startup_tm4c123.o(RESET) refers to startup_tm4c123.o(STACK) for __initial_sp
+    startup_tm4c123.o(RESET) refers to startup_tm4c123.o(.text) for Reset_Handler
+    startup_tm4c123.o(RESET) refers to bsp.o(i.WideTimer3A_Handler) for WideTimer3A_Handler
+    startup_tm4c123.o(RESET) refers to bsp.o(i.WideTimer4A_Handler) for WideTimer4A_Handler
+    startup_tm4c123.o(RESET) refers to bsp.o(i.WideTimer5A_Handler) for WideTimer5A_Handler
+    startup_tm4c123.o(.text) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    system_tm4c123.o(i.SystemCoreClockUpdate) refers to system_tm4c123.o(i.getOscClk) for getOscClk
+    system_tm4c123.o(i.SystemCoreClockUpdate) refers to system_tm4c123.o(.data) for SystemCoreClock
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry8b.o(.ARM.Collect$$$$0000000A) for _main_cpp_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry9a.o(.ARM.Collect$$$$0000000B) for _main_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry5.o(.ARM.Collect$$$$00000004) for _main_scatterload
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry2.o(.ARM.Collect$$$$00000001) for _main_stk
+    entry2.o(.ARM.Collect$$$$00000001) refers to entry2.o(.ARM.Collect$$$$00002712) for __lit__00000000
+    entry2.o(.ARM.Collect$$$$00002712) refers to startup_tm4c123.o(STACK) for __initial_sp
+    entry2.o(__vectab_stack_and_reset_area) refers to startup_tm4c123.o(STACK) for __initial_sp
+    entry2.o(__vectab_stack_and_reset_area) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    entry5.o(.ARM.Collect$$$$00000004) refers to init.o(.text) for __scatterload
+    entry9a.o(.ARM.Collect$$$$0000000B) refers to main.o(i.main) for main
+    entry9b.o(.ARM.Collect$$$$0000000C) refers to main.o(i.main) for main
+    init.o(.text) refers to entry5.o(.ARM.Collect$$$$00000004) for __main_after_scatterload
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing bsp.o(i.BSP_Button2_Input), (12 bytes).
+    Removing bsp.o(i.BSP_Buzzer_Set), (32 bytes).
+    Removing bsp.o(i.BSP_Clock_GetFreq), (12 bytes).
+    Removing bsp.o(i.BSP_Joystick_Init), (304 bytes).
+    Removing bsp.o(i.BSP_Joystick_Input), (64 bytes).
+    Removing bsp.o(i.BSP_LCD_DrawChar), (272 bytes).
+    Removing bsp.o(i.BSP_LCD_DrawCharS), (248 bytes).
+    Removing bsp.o(i.BSP_LCD_DrawFastHLine), (124 bytes).
+    Removing bsp.o(i.BSP_LCD_DrawFastVLine), (124 bytes).
+    Removing bsp.o(i.BSP_LCD_DrawString), (86 bytes).
+    Removing bsp.o(i.BSP_LCD_Drawaxes), (292 bytes).
+    Removing bsp.o(i.BSP_LCD_OutUDec), (144 bytes).
+    Removing bsp.o(i.BSP_LCD_OutUDec4), (136 bytes).
+    Removing bsp.o(i.BSP_LCD_OutUDec5), (136 bytes).
+    Removing bsp.o(i.BSP_LCD_OutUFix2_1), (112 bytes).
+    Removing bsp.o(i.BSP_LCD_OutUHex2), (112 bytes).
+    Removing bsp.o(i.BSP_LCD_PlotIncrement), (56 bytes).
+    Removing bsp.o(i.BSP_LCD_PlotPoint), (100 bytes).
+    Removing bsp.o(i.BSP_LCD_SwapColor), (18 bytes).
+    Removing bsp.o(i.BSP_LightSensor_End), (68 bytes).
+    Removing bsp.o(i.BSP_LightSensor_Init), (84 bytes).
+    Removing bsp.o(i.BSP_LightSensor_Input), (52 bytes).
+    Removing bsp.o(i.BSP_LightSensor_Start), (28 bytes).
+    Removing bsp.o(i.BSP_Microphone_Init), (172 bytes).
+    Removing bsp.o(i.BSP_Microphone_Input), (44 bytes).
+    Removing bsp.o(i.BSP_PeriodicTask_InitB), (188 bytes).
+    Removing bsp.o(i.BSP_PeriodicTask_InitC), (188 bytes).
+    Removing bsp.o(i.BSP_PeriodicTask_Restart), (24 bytes).
+    Removing bsp.o(i.BSP_PeriodicTask_Stop), (24 bytes).
+    Removing bsp.o(i.BSP_PeriodicTask_StopB), (24 bytes).
+    Removing bsp.o(i.BSP_PeriodicTask_StopC), (24 bytes).
+    Removing bsp.o(i.BSP_RGB_D_Init), (344 bytes).
+    Removing bsp.o(i.BSP_RGB_D_Set), (64 bytes).
+    Removing bsp.o(i.BSP_RGB_D_Toggle), (60 bytes).
+    Removing bsp.o(i.BSP_RGB_Set), (80 bytes).
+    Removing bsp.o(i.BSP_TempSensor_End), (76 bytes).
+    Removing bsp.o(i.BSP_TempSensor_Init), (84 bytes).
+    Removing bsp.o(i.BSP_TempSensor_Input), (60 bytes).
+    Removing bsp.o(i.BSP_TempSensor_Start), (28 bytes).
+    Removing bsp.o(i.BSP_Time_Get), (16 bytes).
+    Removing bsp.o(i.BSP_Time_Init), (108 bytes).
+    Removing bsp.o(i.I2C_Recv2), (120 bytes).
+    Removing bsp.o(i.I2C_Send1), (72 bytes).
+    Removing bsp.o(i.I2C_Send3), (176 bytes).
+    Removing bsp.o(i.fillmessage), (72 bytes).
+    Removing bsp.o(i.fillmessage2_1), (96 bytes).
+    Removing bsp.o(i.fillmessage2_Hex), (84 bytes).
+    Removing bsp.o(i.fillmessage4), (100 bytes).
+    Removing bsp.o(i.fillmessage5), (128 bytes).
+    Removing bsp.o(i.i2cinit), (148 bytes).
+    Removing bsp.o(i.lightsensorend), (80 bytes).
+    Removing bsp.o(i.lightsensorstart), (36 bytes).
+    Removing bsp.o(i.tempsensorend), (68 bytes).
+    Removing bsp.o(i.tempsensorstart), (18 bytes).
+    Removing bsp.o(.bss), (12 bytes).
+    Removing main.o(i.numlength), (116 bytes).
+    Removing startup_tm4c123.o(HEAP), (0 bytes).
+    Removing system_tm4c123.o(.rev16_text), (4 bytes).
+    Removing system_tm4c123.o(.revsh_text), (4 bytes).
+    Removing system_tm4c123.o(.rrx_text), (6 bytes).
+    Removing system_tm4c123.o(i.SystemCoreClockUpdate), (196 bytes).
+    Removing system_tm4c123.o(i.SystemInit), (152 bytes).
+    Removing system_tm4c123.o(i.getOscClk), (248 bytes).
+    Removing system_tm4c123.o(.data), (4 bytes).
+
+64 unused section(s) (total 6164 bytes) removed from the image.
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    RESET                                    0x00000000   Section      620  startup_tm4c123.o(RESET)
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    BSP.c                                    0x00000000   Number         0  bsp.o ABSOLUTE
+    BSP.c                                    0x00000000   Number         0  bsp.o ABSOLUTE
+    RTE\Device\TM4C123GH6PM\startup_TM4C123.s 0x00000000   Number         0  startup_tm4c123.o ABSOLUTE
+    RTE\Device\TM4C123GH6PM\system_TM4C123.c 0x00000000   Number         0  system_tm4c123.o ABSOLUTE
+    RTE\\Device\\TM4C123GH6PM\\system_TM4C123.c 0x00000000   Number         0  system_tm4c123.o ABSOLUTE
+    dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    handlers.s                               0x00000000   Number         0  handlers.o ABSOLUTE
+    init.s                                   0x00000000   Number         0  init.o ABSOLUTE
+    main.c                                   0x00000000   Number         0  main.o ABSOLUTE
+    .ARM.Collect$$$$00000000                 0x0000026c   Section        0  entry.o(.ARM.Collect$$$$00000000)
+    .ARM.Collect$$$$00000001                 0x0000026c   Section        4  entry2.o(.ARM.Collect$$$$00000001)
+    .ARM.Collect$$$$00000004                 0x00000270   Section        4  entry5.o(.ARM.Collect$$$$00000004)
+    .ARM.Collect$$$$00000008                 0x00000274   Section        0  entry7b.o(.ARM.Collect$$$$00000008)
+    .ARM.Collect$$$$0000000A                 0x00000274   Section        0  entry8b.o(.ARM.Collect$$$$0000000A)
+    .ARM.Collect$$$$0000000B                 0x00000274   Section        8  entry9a.o(.ARM.Collect$$$$0000000B)
+    .ARM.Collect$$$$0000000D                 0x0000027c   Section        0  entry10a.o(.ARM.Collect$$$$0000000D)
+    .ARM.Collect$$$$0000000F                 0x0000027c   Section        0  entry11a.o(.ARM.Collect$$$$0000000F)
+    .ARM.Collect$$$$00002712                 0x0000027c   Section        4  entry2.o(.ARM.Collect$$$$00002712)
+    __lit__00000000                          0x0000027c   Data           4  entry2.o(.ARM.Collect$$$$00002712)
+    .emb_text                                0x00000280   Section        6  bsp.o(.emb_text)
+    $v0                                      0x00000280   Number         0  bsp.o(.emb_text)
+    .text                                    0x00000288   Section      270  startup_tm4c123.o(.text)
+    $v0                                      0x00000288   Number         0  startup_tm4c123.o(.text)
+    .text                                    0x00000398   Section       36  init.o(.text)
+    i.BSP_Accelerometer_Init                 0x000003bc   Section        0  bsp.o(i.BSP_Accelerometer_Init)
+    i.BSP_Accelerometer_Input                0x0000046c   Section        0  bsp.o(i.BSP_Accelerometer_Input)
+    i.BSP_Button1_Init                       0x000004b4   Section        0  bsp.o(i.BSP_Button1_Init)
+    i.BSP_Button1_Input                      0x00000534   Section        0  bsp.o(i.BSP_Button1_Input)
+    i.BSP_Button2_Init                       0x00000540   Section        0  bsp.o(i.BSP_Button2_Init)
+    i.BSP_Buzzer_Init                        0x000005d0   Section        0  bsp.o(i.BSP_Buzzer_Init)
+    i.BSP_Clock_InitFastest                  0x000006a4   Section        0  bsp.o(i.BSP_Clock_InitFastest)
+    i.BSP_Delay1ms                           0x00000730   Section        0  bsp.o(i.BSP_Delay1ms)
+    i.BSP_LCD_Color565                       0x00000746   Section        0  bsp.o(i.BSP_LCD_Color565)
+    i.BSP_LCD_DrawBitmap                     0x00000760   Section        0  bsp.o(i.BSP_LCD_DrawBitmap)
+    i.BSP_LCD_DrawPixel                      0x00000880   Section        0  bsp.o(i.BSP_LCD_DrawPixel)
+    i.BSP_LCD_FillRect                       0x000008c8   Section        0  bsp.o(i.BSP_LCD_FillRect)
+    i.BSP_LCD_FillScreen                     0x00000974   Section        0  bsp.o(i.BSP_LCD_FillScreen)
+    i.BSP_LCD_Init                           0x00000998   Section        0  bsp.o(i.BSP_LCD_Init)
+    i.BSP_LCD_SetCursor                      0x000009a4   Section        0  bsp.o(i.BSP_LCD_SetCursor)
+    i.BSP_PeriodicTask_Init                  0x000009c4   Section        0  bsp.o(i.BSP_PeriodicTask_Init)
+    i.BSP_RGB_Init                           0x00000a84   Section        0  bsp.o(i.BSP_RGB_Init)
+    i.ST7735_InitR                           0x00000cc4   Section        0  bsp.o(i.ST7735_InitR)
+    ST7735_InitR                             0x00000cc5   Thumb Code    86  bsp.o(i.ST7735_InitR)
+    i.WideTimer3A_Handler                    0x00000d38   Section        0  bsp.o(i.WideTimer3A_Handler)
+    i.WideTimer4A_Handler                    0x00000d50   Section        0  bsp.o(i.WideTimer4A_Handler)
+    i.WideTimer5A_Handler                    0x00000d68   Section        0  bsp.o(i.WideTimer5A_Handler)
+    i.__scatterload_copy                     0x00000d80   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x00000d8e   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x00000d90   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.adcinit                                0x00000da0   Section        0  bsp.o(i.adcinit)
+    adcinit                                  0x00000da1   Thumb Code    58  bsp.o(i.adcinit)
+    i.checkbuttons                           0x00000dec   Section        0  main.o(i.checkbuttons)
+    i.commandList                            0x00000e24   Section        0  bsp.o(i.commandList)
+    commandList                              0x00000e25   Thumb Code    86  bsp.o(i.commandList)
+    i.commonInit                             0x00000e7c   Section        0  bsp.o(i.commonInit)
+    commonInit                               0x00000e7d   Thumb Code   452  bsp.o(i.commonInit)
+    i.main                                   0x00001080   Section        0  main.o(i.main)
+    i.map                                    0x00001198   Section        0  main.o(i.map)
+    i.pushColor                              0x000011ae   Section        0  bsp.o(i.pushColor)
+    pushColor                                0x000011af   Thumb Code    18  bsp.o(i.pushColor)
+    i.setAddrWindow                          0x000011c0   Section        0  bsp.o(i.setAddrWindow)
+    setAddrWindow                            0x000011c1   Thumb Code   106  bsp.o(i.setAddrWindow)
+    i.writecommand                           0x00001234   Section        0  bsp.o(i.writecommand)
+    writecommand                             0x00001235   Thumb Code    62  bsp.o(i.writecommand)
+    i.writedata                              0x0000127c   Section        0  bsp.o(i.writedata)
+    writedata                                0x0000127d   Thumb Code    64  bsp.o(i.writedata)
+    .constdata                               0x000012c4   Section     1403  bsp.o(.constdata)
+    Font                                     0x000012c4   Data        1275  bsp.o(.constdata)
+    Rcmd1                                    0x000017bf   Data          59  bsp.o(.constdata)
+    Rcmd2green                               0x000017fa   Data          13  bsp.o(.constdata)
+    Rcmd2red                                 0x00001807   Data          13  bsp.o(.constdata)
+    Rcmd3                                    0x00001814   Data          43  bsp.o(.constdata)
+    .constdata                               0x00001840   Section      450  main.o(.constdata)
+    .data                                    0x20000000   Section       68  bsp.o(.data)
+    ClockFrequency                           0x20000000   Data           4  bsp.o(.data)
+    PWMCycles                                0x20000004   Data           2  bsp.o(.data)
+    ColStart                                 0x20000012   Data           1  bsp.o(.data)
+    RowStart                                 0x20000013   Data           1  bsp.o(.data)
+    _width                                   0x20000014   Data           2  bsp.o(.data)
+    _height                                  0x20000016   Data           2  bsp.o(.data)
+    .data                                    0x20000044   Section        8  main.o(.data)
+    STACK                                    0x20000050   Section      512  startup_tm4c123.o(STACK)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv4$E$P$D$K$B$S$7EM$VFPi3$EXTD16$VFPS$VFMA$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __ARM_use_no_argv                        0x00000000   Number         0  main.o ABSOLUTE
+    __Vectors                                0x00000000   Data           4  startup_tm4c123.o(RESET)
+    __cpp_initialize__aeabi_                  - Undefined Weak Reference
+    __cxa_finalize                            - Undefined Weak Reference
+    __decompress                              - Undefined Weak Reference
+    _clock_init                               - Undefined Weak Reference
+    _microlib_exit                            - Undefined Weak Reference
+    __Vectors_End                            0x0000026c   Data           0  startup_tm4c123.o(RESET)
+    __Vectors_Size                           0x0000026c   Number         0  startup_tm4c123.o ABSOLUTE
+    __main                                   0x0000026d   Thumb Code     0  entry.o(.ARM.Collect$$$$00000000)
+    _main_stk                                0x0000026d   Thumb Code     0  entry2.o(.ARM.Collect$$$$00000001)
+    _main_scatterload                        0x00000271   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    __main_after_scatterload                 0x00000275   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    _main_clock                              0x00000275   Thumb Code     0  entry7b.o(.ARM.Collect$$$$00000008)
+    _main_cpp_init                           0x00000275   Thumb Code     0  entry8b.o(.ARM.Collect$$$$0000000A)
+    _main_init                               0x00000275   Thumb Code     0  entry9a.o(.ARM.Collect$$$$0000000B)
+    __rt_final_cpp                           0x0000027d   Thumb Code     0  entry10a.o(.ARM.Collect$$$$0000000D)
+    __rt_final_exit                          0x0000027d   Thumb Code     0  entry11a.o(.ARM.Collect$$$$0000000F)
+    parrotdelay                              0x00000281   Thumb Code     6  bsp.o(.emb_text)
+    Reset_Handler                            0x00000289   Thumb Code     4  startup_tm4c123.o(.text)
+    NMI_Handler                              0x0000028d   Thumb Code     2  startup_tm4c123.o(.text)
+    HardFault_Handler                        0x0000028f   Thumb Code     2  startup_tm4c123.o(.text)
+    MemManage_Handler                        0x00000291   Thumb Code     2  startup_tm4c123.o(.text)
+    BusFault_Handler                         0x00000293   Thumb Code     2  startup_tm4c123.o(.text)
+    UsageFault_Handler                       0x00000295   Thumb Code     2  startup_tm4c123.o(.text)
+    SVC_Handler                              0x00000297   Thumb Code     2  startup_tm4c123.o(.text)
+    DebugMon_Handler                         0x00000299   Thumb Code     2  startup_tm4c123.o(.text)
+    PendSV_Handler                           0x0000029b   Thumb Code     2  startup_tm4c123.o(.text)
+    SysTick_Handler                          0x0000029d   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortA_Handler                        0x0000029f   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortB_Handler                        0x000002a1   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortC_Handler                        0x000002a3   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortD_Handler                        0x000002a5   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortE_Handler                        0x000002a7   Thumb Code     2  startup_tm4c123.o(.text)
+    UART0_Handler                            0x000002a9   Thumb Code     2  startup_tm4c123.o(.text)
+    UART1_Handler                            0x000002ab   Thumb Code     2  startup_tm4c123.o(.text)
+    SSI0_Handler                             0x000002ad   Thumb Code     2  startup_tm4c123.o(.text)
+    I2C0_Handler                             0x000002af   Thumb Code     2  startup_tm4c123.o(.text)
+    PMW0_FAULT_Handler                       0x000002b1   Thumb Code     2  startup_tm4c123.o(.text)
+    PWM0Generator0_Handler                   0x000002b3   Thumb Code     2  startup_tm4c123.o(.text)
+    PWM0Generator1_Handler                   0x000002b5   Thumb Code     2  startup_tm4c123.o(.text)
+    PWM0Generator2_Handler                   0x000002b7   Thumb Code     2  startup_tm4c123.o(.text)
+    Quadrature0_Handler                      0x000002b9   Thumb Code     2  startup_tm4c123.o(.text)
+    ADC0Seq0_Handler                         0x000002bb   Thumb Code     2  startup_tm4c123.o(.text)
+    ADC0Seq1_Handler                         0x000002bd   Thumb Code     2  startup_tm4c123.o(.text)
+    ADC0Seq2_Handler                         0x000002bf   Thumb Code     2  startup_tm4c123.o(.text)
+    ADC0Seq3_Handler                         0x000002c1   Thumb Code     2  startup_tm4c123.o(.text)
+    WDT_Handler                              0x000002c3   Thumb Code     2  startup_tm4c123.o(.text)
+    TIMER0A_Handler                          0x000002c5   Thumb Code     2  startup_tm4c123.o(.text)
+    TIMER0B_Handler                          0x000002c7   Thumb Code     2  startup_tm4c123.o(.text)
+    TIMER1A_Handler                          0x000002c9   Thumb Code     2  startup_tm4c123.o(.text)
+    TIMER1B_Handler                          0x000002cb   Thumb Code     2  startup_tm4c123.o(.text)
+    TIMER2A_Handler                          0x000002cd   Thumb Code     2  startup_tm4c123.o(.text)
+    TIMER2B_Handler                          0x000002cf   Thumb Code     2  startup_tm4c123.o(.text)
+    COMP0_Handler                            0x000002d1   Thumb Code     2  startup_tm4c123.o(.text)
+    COMP1_Handler                            0x000002d3   Thumb Code     2  startup_tm4c123.o(.text)
+    COMP2_Handler                            0x000002d5   Thumb Code     2  startup_tm4c123.o(.text)
+    SYSCTL_Handler                           0x000002d7   Thumb Code     2  startup_tm4c123.o(.text)
+    FlashCtl_Handler                         0x000002d9   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortF_Handler                        0x000002db   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortG_Handler                        0x000002dd   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortH_Handler                        0x000002df   Thumb Code     2  startup_tm4c123.o(.text)
+    UART2_Handler                            0x000002e1   Thumb Code     2  startup_tm4c123.o(.text)
+    SSI1_Handler                             0x000002e3   Thumb Code     2  startup_tm4c123.o(.text)
+    TIMER3A_Handler                          0x000002e5   Thumb Code     2  startup_tm4c123.o(.text)
+    TIMER3B_Handler                          0x000002e7   Thumb Code     2  startup_tm4c123.o(.text)
+    I2C1_Handler                             0x000002e9   Thumb Code     2  startup_tm4c123.o(.text)
+    Quadrature1_Handler                      0x000002eb   Thumb Code     2  startup_tm4c123.o(.text)
+    CAN0_Handler                             0x000002ed   Thumb Code     2  startup_tm4c123.o(.text)
+    CAN1_Handler                             0x000002ef   Thumb Code     2  startup_tm4c123.o(.text)
+    CAN2_Handler                             0x000002f1   Thumb Code     2  startup_tm4c123.o(.text)
+    Hibernate_Handler                        0x000002f3   Thumb Code     2  startup_tm4c123.o(.text)
+    USB0_Handler                             0x000002f5   Thumb Code     2  startup_tm4c123.o(.text)
+    PWM0Generator3_Handler                   0x000002f7   Thumb Code     2  startup_tm4c123.o(.text)
+    UDMA_Handler                             0x000002f9   Thumb Code     2  startup_tm4c123.o(.text)
+    UDMAERR_Handler                          0x000002fb   Thumb Code     2  startup_tm4c123.o(.text)
+    ADC1Seq0_Handler                         0x000002fd   Thumb Code     2  startup_tm4c123.o(.text)
+    ADC1Seq1_Handler                         0x000002ff   Thumb Code     2  startup_tm4c123.o(.text)
+    ADC1Seq2_Handler                         0x00000301   Thumb Code     2  startup_tm4c123.o(.text)
+    ADC1Seq3_Handler                         0x00000303   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortJ_Handler                        0x00000305   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortK_Handler                        0x00000307   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortL_Handler                        0x00000309   Thumb Code     2  startup_tm4c123.o(.text)
+    SSI2_Handler                             0x0000030b   Thumb Code     2  startup_tm4c123.o(.text)
+    SSI3_Handler                             0x0000030d   Thumb Code     2  startup_tm4c123.o(.text)
+    UART3_Handler                            0x0000030f   Thumb Code     2  startup_tm4c123.o(.text)
+    UART4_Handler                            0x00000311   Thumb Code     2  startup_tm4c123.o(.text)
+    UART5_Handler                            0x00000313   Thumb Code     2  startup_tm4c123.o(.text)
+    UART6_Handler                            0x00000315   Thumb Code     2  startup_tm4c123.o(.text)
+    UART7_Handler                            0x00000317   Thumb Code     2  startup_tm4c123.o(.text)
+    I2C2_Handler                             0x00000319   Thumb Code     2  startup_tm4c123.o(.text)
+    I2C3_Handler                             0x0000031b   Thumb Code     2  startup_tm4c123.o(.text)
+    TIMER4A_Handler                          0x0000031d   Thumb Code     2  startup_tm4c123.o(.text)
+    TIMER4B_Handler                          0x0000031f   Thumb Code     2  startup_tm4c123.o(.text)
+    TIMER5A_Handler                          0x00000321   Thumb Code     2  startup_tm4c123.o(.text)
+    TIMER5B_Handler                          0x00000323   Thumb Code     2  startup_tm4c123.o(.text)
+    WideTimer0A_Handler                      0x00000325   Thumb Code     2  startup_tm4c123.o(.text)
+    WideTimer0B_Handler                      0x00000327   Thumb Code     2  startup_tm4c123.o(.text)
+    WideTimer1A_Handler                      0x00000329   Thumb Code     2  startup_tm4c123.o(.text)
+    WideTimer1B_Handler                      0x0000032b   Thumb Code     2  startup_tm4c123.o(.text)
+    WideTimer2A_Handler                      0x0000032d   Thumb Code     2  startup_tm4c123.o(.text)
+    WideTimer2B_Handler                      0x0000032f   Thumb Code     2  startup_tm4c123.o(.text)
+    WideTimer3B_Handler                      0x00000333   Thumb Code     2  startup_tm4c123.o(.text)
+    WideTimer4B_Handler                      0x00000337   Thumb Code     2  startup_tm4c123.o(.text)
+    WideTimer5B_Handler                      0x0000033b   Thumb Code     2  startup_tm4c123.o(.text)
+    FPU_Handler                              0x0000033d   Thumb Code     2  startup_tm4c123.o(.text)
+    I2C4_Handler                             0x0000033f   Thumb Code     2  startup_tm4c123.o(.text)
+    I2C5_Handler                             0x00000341   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortM_Handler                        0x00000343   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortN_Handler                        0x00000345   Thumb Code     2  startup_tm4c123.o(.text)
+    QEI2_Handler                             0x00000347   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortP0_Handler                       0x00000349   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortP1_Handler                       0x0000034b   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortP2_Handler                       0x0000034d   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortP3_Handler                       0x0000034f   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortP4_Handler                       0x00000351   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortP5_Handler                       0x00000353   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortP6_Handler                       0x00000355   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortP7_Handler                       0x00000357   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortQ0_Handler                       0x00000359   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortQ1_Handler                       0x0000035b   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortQ2_Handler                       0x0000035d   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortQ3_Handler                       0x0000035f   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortQ4_Handler                       0x00000361   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortQ5_Handler                       0x00000363   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortQ6_Handler                       0x00000365   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortQ7_Handler                       0x00000367   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortR_Handler                        0x00000369   Thumb Code     2  startup_tm4c123.o(.text)
+    GPIOPortS_Handler                        0x0000036b   Thumb Code     2  startup_tm4c123.o(.text)
+    PWM1Generator0_Handler                   0x0000036d   Thumb Code     2  startup_tm4c123.o(.text)
+    PWM1Generator1_Handler                   0x0000036f   Thumb Code     2  startup_tm4c123.o(.text)
+    PWM1Generator2_Handler                   0x00000371   Thumb Code     2  startup_tm4c123.o(.text)
+    PWM1Generator3_Handler                   0x00000373   Thumb Code     2  startup_tm4c123.o(.text)
+    PWM1Fault_Handler                        0x00000375   Thumb Code     2  startup_tm4c123.o(.text)
+    DisableInterrupts                        0x0000037d   Thumb Code     0  startup_tm4c123.o(.text)
+    EnableInterrupts                         0x00000381   Thumb Code     0  startup_tm4c123.o(.text)
+    StartCritical                            0x00000385   Thumb Code     0  startup_tm4c123.o(.text)
+    EndCritical                              0x0000038d   Thumb Code     0  startup_tm4c123.o(.text)
+    WaitForInterrupt                         0x00000393   Thumb Code     0  startup_tm4c123.o(.text)
+    __scatterload                            0x00000399   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x00000399   Thumb Code     0  init.o(.text)
+    BSP_Accelerometer_Init                   0x000003bd   Thumb Code   156  bsp.o(i.BSP_Accelerometer_Init)
+    BSP_Accelerometer_Input                  0x0000046d   Thumb Code    66  bsp.o(i.BSP_Accelerometer_Input)
+    BSP_Button1_Init                         0x000004b5   Thumb Code   112  bsp.o(i.BSP_Button1_Init)
+    BSP_Button1_Input                        0x00000535   Thumb Code     8  bsp.o(i.BSP_Button1_Input)
+    BSP_Button2_Init                         0x00000541   Thumb Code   124  bsp.o(i.BSP_Button2_Init)
+    BSP_Buzzer_Init                          0x000005d1   Thumb Code   184  bsp.o(i.BSP_Buzzer_Init)
+    BSP_Clock_InitFastest                    0x000006a5   Thumb Code   126  bsp.o(i.BSP_Clock_InitFastest)
+    BSP_Delay1ms                             0x00000731   Thumb Code    22  bsp.o(i.BSP_Delay1ms)
+    BSP_LCD_Color565                         0x00000747   Thumb Code    24  bsp.o(i.BSP_LCD_Color565)
+    BSP_LCD_DrawBitmap                       0x00000761   Thumb Code   280  bsp.o(i.BSP_LCD_DrawBitmap)
+    BSP_LCD_DrawPixel                        0x00000881   Thumb Code    64  bsp.o(i.BSP_LCD_DrawPixel)
+    BSP_LCD_FillRect                         0x000008c9   Thumb Code   164  bsp.o(i.BSP_LCD_FillRect)
+    BSP_LCD_FillScreen                       0x00000975   Thumb Code    28  bsp.o(i.BSP_LCD_FillScreen)
+    BSP_LCD_Init                             0x00000999   Thumb Code    10  bsp.o(i.BSP_LCD_Init)
+    BSP_LCD_SetCursor                        0x000009a5   Thumb Code    22  bsp.o(i.BSP_LCD_SetCursor)
+    BSP_PeriodicTask_Init                    0x000009c5   Thumb Code   162  bsp.o(i.BSP_PeriodicTask_Init)
+    BSP_RGB_Init                             0x00000a85   Thumb Code   522  bsp.o(i.BSP_RGB_Init)
+    WideTimer3A_Handler                      0x00000d39   Thumb Code    16  bsp.o(i.WideTimer3A_Handler)
+    WideTimer4A_Handler                      0x00000d51   Thumb Code    16  bsp.o(i.WideTimer4A_Handler)
+    WideTimer5A_Handler                      0x00000d69   Thumb Code    16  bsp.o(i.WideTimer5A_Handler)
+    __scatterload_copy                       0x00000d81   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x00000d8f   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x00000d91   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    checkbuttons                             0x00000ded   Thumb Code    40  main.o(i.checkbuttons)
+    main                                     0x00001081   Thumb Code   264  main.o(i.main)
+    map                                      0x00001199   Thumb Code    22  main.o(i.map)
+    bubble                                   0x00001840   Data         450  main.o(.constdata)
+    Region$$Table$$Base                      0x00001a04   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00001a24   Number         0  anon$$obj.o(Region$$Table)
+    StX                                      0x20000008   Data           4  bsp.o(.data)
+    StY                                      0x2000000c   Data           4  bsp.o(.data)
+    StTextColor                              0x20000010   Data           2  bsp.o(.data)
+    Messageindex                             0x20000018   Data           4  bsp.o(.data)
+    TimeIndex                                0x2000001c   Data           4  bsp.o(.data)
+    Ymax                                     0x20000020   Data           4  bsp.o(.data)
+    Ymin                                     0x20000024   Data           4  bsp.o(.data)
+    Yrange                                   0x20000028   Data           4  bsp.o(.data)
+    PlotBGColor                              0x2000002c   Data           2  bsp.o(.data)
+    PeriodicTask                             0x20000030   Data           4  bsp.o(.data)
+    PeriodicTaskB                            0x20000034   Data           4  bsp.o(.data)
+    PeriodicTaskC                            0x20000038   Data           4  bsp.o(.data)
+    LightBusy                                0x2000003c   Data           4  bsp.o(.data)
+    TempBusy                                 0x20000040   Data           4  bsp.o(.data)
+    acc_hold                                 0x20000044   Data           2  main.o(.data)
+    AccX                                     0x20000046   Data           2  main.o(.data)
+    AccY                                     0x20000048   Data           2  main.o(.data)
+    AccZ                                     0x2000004a   Data           2  main.o(.data)
+    __initial_sp                             0x20000250   Data           0  startup_tm4c123.o(STACK)
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x00000289
+
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00001a70, Max: 0xffffffff, ABSOLUTE)
+
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00001a24, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00000000   0x00000000   0x0000026c   Data   RO          571    RESET               startup_tm4c123.o
+    0x0000026c   0x0000026c   0x00000000   Code   RO          633  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x0000026c   0x0000026c   0x00000004   Code   RO          636    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x00000270   0x00000270   0x00000004   Code   RO          639    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x00000274   0x00000274   0x00000000   Code   RO          641    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x00000274   0x00000274   0x00000000   Code   RO          643    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x00000274   0x00000274   0x00000008   Code   RO          644    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x0000027c   0x0000027c   0x00000000   Code   RO          646    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x0000027c   0x0000027c   0x00000000   Code   RO          648    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x0000027c   0x0000027c   0x00000004   Code   RO          637    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x00000280   0x00000280   0x00000006   Code   RO            1    .emb_text           bsp.o
+    0x00000286   0x00000286   0x00000002   PAD
+    0x00000288   0x00000288   0x0000010e   Code   RO          572  * .text               startup_tm4c123.o
+    0x00000396   0x00000396   0x00000002   PAD
+    0x00000398   0x00000398   0x00000024   Code   RO          650    .text               mc_w.l(init.o)
+    0x000003bc   0x000003bc   0x000000b0   Code   RO            2    i.BSP_Accelerometer_Init  bsp.o
+    0x0000046c   0x0000046c   0x00000048   Code   RO            3    i.BSP_Accelerometer_Input  bsp.o
+    0x000004b4   0x000004b4   0x00000080   Code   RO            4    i.BSP_Button1_Init  bsp.o
+    0x00000534   0x00000534   0x0000000c   Code   RO            5    i.BSP_Button1_Input  bsp.o
+    0x00000540   0x00000540   0x00000090   Code   RO            6    i.BSP_Button2_Init  bsp.o
+    0x000005d0   0x000005d0   0x000000d4   Code   RO            8    i.BSP_Buzzer_Init   bsp.o
+    0x000006a4   0x000006a4   0x0000008c   Code   RO           11    i.BSP_Clock_InitFastest  bsp.o
+    0x00000730   0x00000730   0x00000016   Code   RO           12    i.BSP_Delay1ms      bsp.o
+    0x00000746   0x00000746   0x00000018   Code   RO           15    i.BSP_LCD_Color565  bsp.o
+    0x0000075e   0x0000075e   0x00000002   PAD
+    0x00000760   0x00000760   0x00000120   Code   RO           16    i.BSP_LCD_DrawBitmap  bsp.o
+    0x00000880   0x00000880   0x00000048   Code   RO           21    i.BSP_LCD_DrawPixel  bsp.o
+    0x000008c8   0x000008c8   0x000000ac   Code   RO           24    i.BSP_LCD_FillRect  bsp.o
+    0x00000974   0x00000974   0x00000024   Code   RO           25    i.BSP_LCD_FillScreen  bsp.o
+    0x00000998   0x00000998   0x0000000a   Code   RO           26    i.BSP_LCD_Init      bsp.o
+    0x000009a2   0x000009a2   0x00000002   PAD
+    0x000009a4   0x000009a4   0x00000020   Code   RO           34    i.BSP_LCD_SetCursor  bsp.o
+    0x000009c4   0x000009c4   0x000000c0   Code   RO           42    i.BSP_PeriodicTask_Init  bsp.o
+    0x00000a84   0x00000a84   0x00000240   Code   RO           52    i.BSP_RGB_Init      bsp.o
+    0x00000cc4   0x00000cc4   0x00000074   Code   RO           63    i.ST7735_InitR      bsp.o
+    0x00000d38   0x00000d38   0x00000018   Code   RO           64    i.WideTimer3A_Handler  bsp.o
+    0x00000d50   0x00000d50   0x00000018   Code   RO           65    i.WideTimer4A_Handler  bsp.o
+    0x00000d68   0x00000d68   0x00000018   Code   RO           66    i.WideTimer5A_Handler  bsp.o
+    0x00000d80   0x00000d80   0x0000000e   Code   RO          654    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x00000d8e   0x00000d8e   0x00000002   Code   RO          655    i.__scatterload_null  mc_w.l(handlers.o)
+    0x00000d90   0x00000d90   0x0000000e   Code   RO          656    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x00000d9e   0x00000d9e   0x00000002   PAD
+    0x00000da0   0x00000da0   0x0000004c   Code   RO           67    i.adcinit           bsp.o
+    0x00000dec   0x00000dec   0x00000038   Code   RO          499    i.checkbuttons      main.o
+    0x00000e24   0x00000e24   0x00000056   Code   RO           68    i.commandList       bsp.o
+    0x00000e7a   0x00000e7a   0x00000002   PAD
+    0x00000e7c   0x00000e7c   0x00000204   Code   RO           69    i.commonInit        bsp.o
+    0x00001080   0x00001080   0x00000118   Code   RO          500    i.main              main.o
+    0x00001198   0x00001198   0x00000016   Code   RO          501    i.map               main.o
+    0x000011ae   0x000011ae   0x00000012   Code   RO           78    i.pushColor         bsp.o
+    0x000011c0   0x000011c0   0x00000074   Code   RO           79    i.setAddrWindow     bsp.o
+    0x00001234   0x00001234   0x00000048   Code   RO           82    i.writecommand      bsp.o
+    0x0000127c   0x0000127c   0x00000048   Code   RO           83    i.writedata         bsp.o
+    0x000012c4   0x000012c4   0x0000057b   Data   RO           85    .constdata          bsp.o
+    0x0000183f   0x0000183f   0x00000001   PAD
+    0x00001840   0x00001840   0x000001c2   Data   RO          503    .constdata          main.o
+    0x00001a02   0x00001a02   0x00000002   PAD
+    0x00001a04   0x00001a04   0x00000020   Data   RO          652    Region$$Table       anon$$obj.o
+
+
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00001a24, Size: 0x0000004c, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000000   0x00001a24   0x00000044   Data   RW           86    .data               bsp.o
+    0x20000044   0x00001a68   0x00000008   Data   RW          504    .data               main.o
+
+
+    Execution Region ER_ZI (Exec base: 0x2000004c, Load base: 0x00001a70, Size: 0x00000204, Max: 0xffffffff, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x2000004c   0x00001a70   0x00000004   PAD
+    0x20000050        -       0x00000200   Zero   RW          569    STACK               startup_tm4c123.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+      3458        398       1403         68          0      23700   bsp.o
+       358         32        450          8          0       2341   main.o
+       270          6        620          0        512       5712   startup_tm4c123.o
+
+    ----------------------------------------------------------------------
+      4096        436       2508         76        516      31753   Object Totals
+         0          0         32          0          0          0   (incl. Generated)
+        10          0          3          0          4          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         0          0          0          0          0          0   entry.o
+         0          0          0          0          0          0   entry10a.o
+         0          0          0          0          0          0   entry11a.o
+         8          4          0          0          0          0   entry2.o
+         4          0          0          0          0          0   entry5.o
+         0          0          0          0          0          0   entry7b.o
+         0          0          0          0          0          0   entry8b.o
+         8          4          0          0          0          0   entry9a.o
+        30          0          0          0          0          0   handlers.o
+        36          8          0          0          0         68   init.o
+
+    ----------------------------------------------------------------------
+        88         16          0          0          0         68   Library Totals
+         2          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+        86         16          0          0          0         68   mc_w.l
+
+    ----------------------------------------------------------------------
+        88         16          0          0          0         68   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+      4184        452       2508         76        516      29325   Grand Totals
+      4184        452       2508         76        516      29325   ELF Image Totals
+      4184        452       2508         76          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                 6692 (   6.54kB)
+    Total RW  Size (RW Data + ZI Data)               592 (   0.58kB)
+    Total ROM Size (Code + RO Data + RW Data)       6768 (   6.61kB)
+
+==============================================================================
+

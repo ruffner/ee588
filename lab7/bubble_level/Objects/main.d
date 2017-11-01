@@ -1,0 +1,16 @@
+.\objects\main.o: main.c
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\main.o: bubble.h
+.\objects\main.o: BSP.h
+.\objects\main.o: tm4c123gh6pm.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\main.o: ../TI/inc/hw_memmap.h
+.\objects\main.o: ../TI/driverlib/interrupt.h
+.\objects\main.o: ../TI/driverlib/rom_map.h
+.\objects\main.o: ../TI/driverlib/debug.h
+.\objects\main.o: ../TI/driverlib/gpio.h
+.\objects\main.o: ../TI/driverlib/rom.h
+.\objects\main.o: ../TI/driverlib/sysctl.h
+.\objects\main.o: ../TI/driverlib/fpu.h
+.\objects\main.o: ../TI/driverlib/timer.h
+.\objects\main.o: ../TI/driverlib/pin_map.h
