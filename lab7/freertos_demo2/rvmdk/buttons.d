@@ -1,0 +1,12 @@
+.\rvmdk\buttons.o: ..\TI\examples\boards\ek-tm4c123gxl\drivers\buttons.c
+.\rvmdk\buttons.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\rvmdk\buttons.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\rvmdk\buttons.o: ..\TI\inc/hw_types.h
+.\rvmdk\buttons.o: ..\TI\inc/hw_memmap.h
+.\rvmdk\buttons.o: ..\TI\inc/hw_gpio.h
+.\rvmdk\buttons.o: ..\TI\driverlib/sysctl.h
+.\rvmdk\buttons.o: ..\TI\driverlib/rom.h
+.\rvmdk\buttons.o: ..\TI\driverlib/rom_map.h
+.\rvmdk\buttons.o: ..\TI\driverlib/pin_map.h
+.\rvmdk\buttons.o: ..\TI\driverlib/gpio.h
+.\rvmdk\buttons.o: ..\TI\examples\boards\ek-tm4c123gxl\drivers/buttons.h
