@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\rvmdk\freertos_demo.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\rvmdk\freertos_demo.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Thu Nov 02 13:09:58 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Thu Nov 02 13:47:56 2017
 <BR><P>
-<H3>Maximum Stack Usage =        344 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        352 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 LCDTask &rArr; drawText &rArr; calcNadir &rArr; __hardfp_atan2 &rArr; atan &rArr; __hardfp_atan &rArr; __kernel_poly &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 <P>
@@ -581,7 +581,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2
 </UL>
 
-<P><STRONG><a name="[5b]"></a>calcNadir</STRONG> (Thumb, 276 bytes, Stack size 72 bytes, lcd_task.o(i.calcNadir))
+<P><STRONG><a name="[5b]"></a>calcNadir</STRONG> (Thumb, 278 bytes, Stack size 72 bytes, lcd_task.o(i.calcNadir))
 <BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = calcNadir &rArr; __hardfp_atan2 &rArr; atan &rArr; __hardfp_atan &rArr; __kernel_poly &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
@@ -608,8 +608,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCDTask
 </UL>
 
-<P><STRONG><a name="[43]"></a>drawText</STRONG> (Thumb, 292 bytes, Stack size 32 bytes, lcd_task.o(i.drawText))
-<BR><BR>[Stack]<UL><LI>Max Depth = 320<LI>Call Chain = drawText &rArr; calcNadir &rArr; __hardfp_atan2 &rArr; atan &rArr; __hardfp_atan &rArr; __kernel_poly &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
+<P><STRONG><a name="[43]"></a>drawText</STRONG> (Thumb, 454 bytes, Stack size 40 bytes, lcd_task.o(i.drawText))
+<BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = drawText &rArr; calcNadir &rArr; __hardfp_atan2 &rArr; atan &rArr; __hardfp_atan &rArr; __kernel_poly &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_LCD_SetCursor
 <LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_LCD_OutUDec
@@ -1032,8 +1032,8 @@ Local Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_rvmdk.o(RESET)
 </UL>
-<P><STRONG><a name="[a]"></a>LCDTask</STRONG> (Thumb, 256 bytes, Stack size 24 bytes, lcd_task.o(i.LCDTask))
-<BR><BR>[Stack]<UL><LI>Max Depth = 344<LI>Call Chain = LCDTask &rArr; drawText &rArr; calcNadir &rArr; __hardfp_atan2 &rArr; atan &rArr; __hardfp_atan &rArr; __kernel_poly &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
+<P><STRONG><a name="[a]"></a>LCDTask</STRONG> (Thumb, 304 bytes, Stack size 24 bytes, lcd_task.o(i.LCDTask))
+<BR><BR>[Stack]<UL><LI>Max Depth = 352<LI>Call Chain = LCDTask &rArr; drawText &rArr; calcNadir &rArr; __hardfp_atan2 &rArr; atan &rArr; __hardfp_atan &rArr; __kernel_poly &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_LCD_FillScreen
 <LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_LCD_Color565

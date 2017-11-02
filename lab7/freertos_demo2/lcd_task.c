@@ -30,6 +30,7 @@ extern xSemaphoreHandle g_pUARTSemaphore;
 static uint8_t mode = MODE_TEXT;
 static uint8_t hold = 0;
 static int lastX = 0, lastY = 0;
+uint16_t diffs[3]; // x,y,z
 
 // bubble bitmap
 const unsigned short bubble[] = {
@@ -58,9 +59,9 @@ long map(long x, long in_min, long in_max, long out_min, long out_max)
 
 void calcNadir(uint32_t AccX, uint32_t AccY, uint32_t AccZ, uint32_t *roll, uint32_t *pitch)
 {
-	double x_Buff = ((double)map(AccX,320,680,-500,500))/1000.0;
-  double y_Buff = ((double)map(AccY,320,680,-500,500))/1000.0;
-  double z_Buff = ((double)map(AccZ,320,680,-500,500))/1000.0;
+	double x_Buff = ((double)map(AccX,338,680,-500,500))/1000.0;
+  double y_Buff = ((double)map(AccY,328,680,-500,500))/1000.0;
+  double z_Buff = ((double)map(AccZ,330,730,-500,500))/1000.0;
   *pitch = atan2(y_Buff , z_Buff) * 57.3;
   *roll = atan2((- x_Buff) , sqrt(y_Buff * y_Buff + z_Buff * z_Buff)) * 57.3;
 }
@@ -103,13 +104,27 @@ void drawText(uint16_t AccX, uint16_t AccY, uint16_t AccZ)
 	
 	calcNadir(AccX, AccY, AccZ, &Roll, &Pitch);
 	
-	
-	BSP_LCD_DrawString(0, 8, "Roll=     ", BSP_LCD_Color565(255, 255, 255));
-	BSP_LCD_SetCursor(6, 8);
-	BSP_LCD_OutUDec((uint32_t)Roll, BSP_LCD_Color565(255, 0, 255));
-	BSP_LCD_DrawString(0, 9, "Pitch=    ", BSP_LCD_Color565(255, 255, 255));
-	BSP_LCD_SetCursor(6, 9);
-	BSP_LCD_OutUDec((uint32_t)Pitch, BSP_LCD_Color565(255, 0, 255));
+	if(hold==2){
+		uint32_t r2,p2;
+		
+		calcNadir(diffs[0], diffs[1], diffs[2], &r2, &p2);
+		
+		BSP_LCD_DrawString(10, 8, "DIFFERENCE     ", BSP_LCD_Color565(255, 255, 255));
+		BSP_LCD_DrawString(0, 8, "Roll=     ", BSP_LCD_Color565(255, 255, 255));
+		BSP_LCD_SetCursor(6, 8);
+		BSP_LCD_OutUDec((uint32_t)abs(r2-Roll), BSP_LCD_Color565(255, 0, 255));
+		BSP_LCD_DrawString(0, 9, "Pitch=    ", BSP_LCD_Color565(255, 255, 255));
+		BSP_LCD_SetCursor(6, 9);
+		BSP_LCD_OutUDec((uint32_t)abs(p2-Pitch), BSP_LCD_Color565(255, 0, 255));
+	} else {
+		BSP_LCD_DrawString(0, 8, "Roll=     ", BSP_LCD_Color565(255, 255, 255));
+		BSP_LCD_SetCursor(6, 8);
+		BSP_LCD_OutUDec((uint32_t)Roll, BSP_LCD_Color565(255, 0, 255));
+		BSP_LCD_DrawString(0, 9, "Pitch=    ", BSP_LCD_Color565(255, 255, 255));
+		BSP_LCD_SetCursor(6, 9);
+		BSP_LCD_OutUDec((uint32_t)Pitch, BSP_LCD_Color565(255, 0, 255));
+	}
+		
 }
 
 static void
@@ -149,8 +164,19 @@ LCDTask(void *pvParameters)
 			}
 			
 			// LOCK BUTTON
+			// 0 - no lock, show live data
+			// 1 - lock, show snapshot data
+			// 2 - diff, show this sample - snapshot data
 			else if( buttonStatus & BSP_SW2_MASK ){
-				hold = !hold;
+				hold = (hold+1)%3;
+				if(hold==0) BSP_LCD_FillScreen(BSP_LCD_Color565(0, 0, 0));
+				
+				if( hold==2){
+					diffs[0] = accelVals[0];
+					diffs[1] = accelVals[1];
+					diffs[2] = accelVals[2];
+				}
+				
 				xSemaphoreTake(g_pUARTSemaphore, portMAX_DELAY);
 				UARTprintf("switching hold status");
 				xSemaphoreGive(g_pUARTSemaphore);
@@ -159,7 +185,7 @@ LCDTask(void *pvParameters)
 
 		// UPDATE HOLD VALUES IF WE'RE LIVE, OTHERWISE
 		// PRESERVE THE LAST SAMPLE
-		if( !hold ){
+		if( hold==0 ){
 			holdVals[0] = accelVals[0];
 			holdVals[1] = accelVals[1];
 			holdVals[2] = accelVals[2];
