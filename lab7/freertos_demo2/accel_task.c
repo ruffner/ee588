@@ -17,7 +17,7 @@
 #include "BSP.h"
 #include "accel_task.h"
 
-#define ACCEL_READ_DELAY        125
+#define ACCEL_READ_DELAY        100
 
 #define ACCELTASKSTACKSIZE        128         // Stack size in words
 #define LCD_QUEUE_SIZE					5

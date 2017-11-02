@@ -1,6 +1,7 @@
 .\rvmdk\lcd_task.o: lcd_task.c
 .\rvmdk\lcd_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\rvmdk\lcd_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\rvmdk\lcd_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\rvmdk\lcd_task.o: ..\TI\inc/hw_memmap.h
 .\rvmdk\lcd_task.o: ..\TI\inc/hw_types.h
 .\rvmdk\lcd_task.o: ..\TI\inc/hw_gpio.h

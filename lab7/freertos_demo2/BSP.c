@@ -154,12 +154,9 @@
 #include <stdint.h>
 #include "BSP.h"
 #include "tm4c123gh6pm.h"
+#include <FreeRTOS.h>
+#include <task.h>
 
-void DisableInterrupts(void); // Disable interrupts
-void EnableInterrupts(void);  // Enable interrupts
-long StartCritical (void);    // previous I bit, disable interrupts
-void EndCritical(long sr);    // restore I bit to previous value
-void WaitForInterrupt(void);  // low power mode
 
 static uint32_t ClockFrequency = 16000000; // cycles/second
 
@@ -2074,7 +2071,7 @@ void BSP_PeriodicTask_Init(void(*task)(void), uint32_t freq, uint8_t priority){l
   if(priority > 6){
     priority = 6;
   }
-  sr = StartCritical();
+  taskENTER_CRITICAL();
   PeriodicTask = task;             // user function
   // ***************** Wide Timer5A initialization *****************
   SYSCTL_RCGCWTIMER_R |= 0x20;     // activate clock for Wide Timer5
@@ -2098,7 +2095,7 @@ void BSP_PeriodicTask_Init(void(*task)(void), uint32_t freq, uint8_t priority){l
 // 32 bits in each NVIC_ENx_R register, 104/32 = 3 remainder 8
   NVIC_EN3_R = 1<<8;               // enable IRQ 104 in NVIC
   WTIMER5_CTL_R |= TIMER_CTL_TAEN; // enable Wide Timer0A 32-b
-  EndCritical(sr);
+  taskEXIT_CRITICAL();
 }
 
 void WideTimer5A_Handler(void){
@@ -2142,7 +2139,7 @@ void BSP_PeriodicTask_InitB(void(*task)(void), uint32_t freq, uint8_t priority){
   if(priority > 6){
     priority = 6;
   }
-  sr = StartCritical();
+  taskENTER_CRITICAL();
   PeriodicTaskB = task;             // user function
   // ***************** Wide Timer4A initialization *****************
   SYSCTL_RCGCWTIMER_R |= 0x10;     // activate clock for Wide Timer4
@@ -2166,7 +2163,7 @@ void BSP_PeriodicTask_InitB(void(*task)(void), uint32_t freq, uint8_t priority){
 // 32 bits in each NVIC_ENx_R register, 102/32 = 3 remainder 6
   NVIC_EN3_R = 1<<6;               // enable IRQ 102 in NVIC
   WTIMER4_CTL_R |= TIMER_CTL_TAEN; // enable Wide Timer4A 32-b
-  EndCritical(sr);
+  taskEXIT_CRITICAL();
 }
 
 void WideTimer4A_Handler(void){
@@ -2203,7 +2200,7 @@ void BSP_PeriodicTask_InitC(void(*task)(void), uint32_t freq, uint8_t priority){
   if(priority > 6){
     priority = 6;
   }
-  sr = StartCritical();
+  taskENTER_CRITICAL();
   PeriodicTaskC = task;             // user function
   // ***************** Wide Timer3A initialization *****************
   SYSCTL_RCGCWTIMER_R |= 0x08;     // activate clock for Wide Timer3
@@ -2227,7 +2224,7 @@ void BSP_PeriodicTask_InitC(void(*task)(void), uint32_t freq, uint8_t priority){
 // 32 bits in each NVIC_ENx_R register, 100/32 = 3 remainder 4
   NVIC_EN3_R = 1<<4;               // enable IRQ 100 in NVIC
   WTIMER3_CTL_R |= TIMER_CTL_TAEN; // enable Wide Timer3A 32-b
-  EndCritical(sr);
+  taskEXIT_CRITICAL();
 }
 
 void WideTimer3A_Handler(void){
@@ -2253,7 +2250,7 @@ void BSP_PeriodicTask_StopC(void){
 // Assumes: BSP_Clock_InitFastest() has been called
 //          so clock = 80/80 = 1 MHz
 void BSP_Time_Init(void){long sr;
-  sr = StartCritical();
+  taskENTER_CRITICAL();
   // ***************** Wide Timer5B initialization *****************
   SYSCTL_RCGCWTIMER_R |= 0x20;     // activate clock for Wide Timer5
   while((SYSCTL_PRWTIMER_R&0x20) == 0){};// allow time for clock to stabilize
@@ -2266,7 +2263,7 @@ void BSP_Time_Init(void){long sr;
   WTIMER5_ICR_R = TIMER_ICR_TBTOCINT;// clear WTIMER5B timeout flag
   WTIMER5_IMR_R &= ~TIMER_IMR_TBTOIM;// disarm timeout interrupt
   WTIMER5_CTL_R |= TIMER_CTL_TBEN; // enable Wide Timer0B 32-b
-  EndCritical(sr);
+  taskEXIT_CRITICAL();
 }
 
 // ------------BSP_Time_Get------------
